@@ -634,6 +634,12 @@ body._touch .moreBanners img {
 		top: 3vh;
 		right: 3vh;
 	}
+	@media (orientation: portrait) {
+		& .plus {
+			top: 3vw;
+			right: 3vw;
+		}
+	}
 }
 .closeArea {
 	position: fixed;
