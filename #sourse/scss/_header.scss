@@ -45,24 +45,24 @@
 }
 body._touch .plus {
 	position: relative;
-	width: 2rem;
-	height: 2rem;
+	width: 4rem;
+	height: 4rem;
 	cursor: pointer;
 	transition-duration: 0.5s;
 	transition-timing-function: ease-in-out;
 
 	&__gor {
-		height: 0.5rem;
+		height: 1rem;
 		position: absolute;
-		top: 0.75rem;
+		top: 1.5rem;
 		background-color: $mainTextColor;
 		width: 100%;
 	}
 
 	&__vert {
-		width: 0.5rem;
+		width: 1rem;
 		position: absolute;
-		left: 0.75rem;
+		left: 1.5rem;
 		background-color: $mainTextColor;
 		height: 100%;
 	}
@@ -152,7 +152,7 @@ body._touch .menuBg {
 body._touch .header__link {
 	position: relative;
 	top: 2rem;
-	padding-top: 0.13rem;
+	padding-top: 2rem;
 	list-style: none;
 	margin: 0.67rem 1.33rem 0.67rem 1.33rem;
 	cursor: pointer;
