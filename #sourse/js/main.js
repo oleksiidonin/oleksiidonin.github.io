@@ -102,7 +102,7 @@ menuButtons.addEventListener("click", function (event) {
 				}
 			} else {
 				let delay = 0;
-				body.style.overflow = 'visible';
+				body.style.overflow = 'auto';
 				for (var i = headerLink.length - 1; i >= 0; i--) {
 					let timerId = setTimeout(setHeaderlinkOpenClass, delay, headerLink[i]);
 					delay += 500 / headerLink.length;
@@ -219,9 +219,8 @@ document.querySelectorAll('a[href^="#"').forEach(link => {
 		e.preventDefault();
 		let curWidth = parseInt(window.innerWidth);
 		if (curWidth < 767) {
-			body.style.overflow = 'visible';
 			let delay = 0;
-			body.style.overflow = 'visible';
+			body.style.overflow = 'auto';
 			for (var i = headerLink.length - 1; i >= 0; i--) {
 				let timerId = setTimeout(setHeaderlinkOpenClass, delay, headerLink[i]);
 				delay += 500 / headerLink.length;
@@ -493,7 +492,7 @@ popUp.addEventListener("click", function (event) {
 	if (event.target.closest('.popUp')) {
 		if (!event.target.closest('.loadMore__conteiner')) {
 			popUp.classList.toggle('activePopUp');
-			body.style.overflow = 'visible';
+			body.style.overflow = 'auto';
 		}
 	}
 });
@@ -586,6 +585,7 @@ function setVideo() {
 	if (videoPlay) {
 		if (mainLogo != null && mainLogo != undefined) {
 			if (!mainLogo.classList.contains('closeMainLogo')) {
+				body.style.overflow = 'auto';
 				mainLogo.classList.toggle('closeMainLogo');
 				mainLogo.addEventListener('transitionend', function () {
 					createjs.Ticker.removeEventListener("tick", stage);
