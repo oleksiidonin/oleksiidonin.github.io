@@ -539,6 +539,7 @@ iframe {
 	z-index: 3;
 	padding: 0.5rem;
 }
+
 .moreBanners a {
 	cursor: pointer;
 	background-image: linear-gradient($mainTextColor, $mainTextColor);
@@ -561,6 +562,12 @@ body._pc .moreBanners a:hover {
 }
 body._pc .moreBanners img:hover {
 	transform: scale(1.2);
+}
+body._touch .moreBanners {
+	font-size: 1.5rem;
+}
+body._touch .moreBanners img {
+	height: 1.5rem;
 }
 .loadMore {
 	&__conteiner {
