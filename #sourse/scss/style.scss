@@ -585,6 +585,14 @@ body._touch .moreBanners img {
 		cursor: pointer;
 		transition-duration: 0.1s;
 	}
+	body._touch &__button {
+		font-size: 1.5rem;
+		border-radius: 0.33rem;
+		border: 0.133rem solid $mainTextColor;
+		padding: 0.5rem 3rem 0.5rem 3rem;
+		cursor: pointer;
+		transition-duration: 0.1s;
+	}
 	&__button span {
 		color: $mainTextColor;
 		background-image: linear-gradient($blackColor, $blackColor);
@@ -602,6 +610,7 @@ body._touch .moreBanners img {
 		background-size: 100% 0.133rem;
 	}
 }
+
 .popUp {
 	position: fixed;
 	display: block;
