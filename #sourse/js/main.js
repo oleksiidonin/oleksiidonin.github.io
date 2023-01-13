@@ -56,6 +56,7 @@ if (isMobile.any()) {
 
 function setHeaderlinkOpenClass(obj) {
 	obj.classList.toggle('headerLik_open');
+
 }
 function hideMainMenu() {
 	menuPlusButton.classList.toggle('openPlus');
@@ -98,14 +99,15 @@ menuButtons.addEventListener("click", function (event) {
 				menuPlusButton.classList.toggle('openPlus');
 				menuBg.classList.toggle('openMenuBg');
 				let delay = 500;
-				body.style.overflow = 'hidden';
+
+				//menuBg.addEventListener('transitionend', mobileMenuIsOpened);
 				for (const item of headerLink) {
 					let timerId = setTimeout(setHeaderlinkOpenClass, delay, item);
 					delay += delay / headerLink.length;
 				}
 			} else {
 				let delay = 0;
-				body.style.overflow = 'auto';
+				body.style.overflow = 'visible';
 				for (var i = headerLink.length - 1; i >= 0; i--) {
 					let timerId = setTimeout(setHeaderlinkOpenClass, delay, headerLink[i]);
 					delay += 500 / headerLink.length;
@@ -115,6 +117,10 @@ menuButtons.addEventListener("click", function (event) {
 		}
 	}
 });
+function mobileMenuIsOpened() {
+	body.style.overflow = 'hidden';
+	menuBg.removeEventListener('transitionend', mobileMenuIsOpened);
+}
 function showContactsTitle() {
 	contactsTitle.classList.toggle('contacts__block-visible');
 }
@@ -219,11 +225,12 @@ menuButtons.addEventListener("mouseout", function (event) {
 document.querySelectorAll('a[href^="#"').forEach(link => {
 
 	link.addEventListener('click', function (e) {
+		console.log('tut');
 		e.preventDefault();
 		let curWidth = parseInt(window.innerWidth);
-		if (curWidth < 767) {
+		if (isMobile.any()) {
 			let delay = 0;
-			body.style.overflow = 'auto';
+			body.style.overflow = 'visible';
 			for (var i = headerLink.length - 1; i >= 0; i--) {
 				let timerId = setTimeout(setHeaderlinkOpenClass, delay, headerLink[i]);
 				delay += 500 / headerLink.length;
@@ -476,7 +483,7 @@ popUp.addEventListener("click", function (event) {
 	if (event.target.closest('.popUp')) {
 		if (!event.target.closest('.loadMore__conteiner')) {
 			popUp.classList.toggle('activePopUp');
-			body.style.overflow = 'auto';
+			body.style.overflow = 'visible';
 			popUpBool = false;
 		}
 	}
@@ -596,7 +603,7 @@ function setVideo() {
 	if (videoPlay) {
 		if (mainLogo != null && mainLogo != undefined) {
 			if (!mainLogo.classList.contains('closeMainLogo')) {
-				body.style.overflow = 'auto';
+				body.style.overflow = 'visible';
 				mainLogo.classList.toggle('closeMainLogo');
 				mainLogo.addEventListener('transitionend', function () {
 					createjs.Ticker.removeEventListener("tick", stage);

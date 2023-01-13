@@ -67,6 +67,9 @@ body._touch .plus {
 		height: 100%;
 	}
 }
+body._touch .popUp.activePopUp .plus {
+	position: absolute;
+}
 .openPlus {
 	transform: rotate(-405deg);
 }
