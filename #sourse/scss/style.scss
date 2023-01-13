@@ -629,10 +629,14 @@ body._touch .moreBanners img {
 	transition-duration: 0.5s;
 	transition-timing-function: ease-out;
 	//cursor: pointer;
-
+	&__main-conteiner {
+		display: block;
+		min-height: 100%;
+		padding-top: 3.3rem;
+	}
 	&__conteiner {
 		display: flex;
-		min-height: 100%;
+
 		justify-content: space-evenly;
 		flex-wrap: wrap;
 		margin: 0px 6.7rem 0px 3.3rem;
@@ -643,6 +647,7 @@ body._touch .moreBanners img {
 		display: inline-block;
 		top: 3vh;
 		right: 3vh;
+		position: absolute;
 	}
 	@media (orientation: portrait) {
 		& .plus {
