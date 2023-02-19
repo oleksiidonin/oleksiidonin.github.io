@@ -819,7 +819,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/_100000.png", id:"_100000"},
+		{src:"images/100000.png", id:"_100000"},
 		{src:"images/bg.jpg", id:"bg"},
 		{src:"images/box1.png", id:"box1"},
 		{src:"images/box2.png", id:"box2"},

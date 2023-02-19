@@ -789,7 +789,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/_img.jpg", id:"_img"},
+		{src:"images/img.jpg", id:"_img"},
 		{src:"images/img1_1.jpg", id:"img1_1"},
 		{src:"images/img1_2.jpg", id:"img1_2"},
 		{src:"images/img2.jpg", id:"img2"},

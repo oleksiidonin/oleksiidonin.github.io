@@ -376,7 +376,7 @@ lib.properties = {
 	manifest: [
 		{src:"images/box.png", id:"box"},
 		{src:"images/boxes.png", id:"boxes"},
-		{src:"images/_img.png", id:"_img"}
+		{src:"images/img.png", id:"_img"}
 	],
 	preloads: []
 };

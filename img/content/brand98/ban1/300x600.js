@@ -1175,7 +1175,7 @@ lib.properties = {
 		{src:"images/bottle1.png", id:"bottle1"},
 		{src:"images/bottle2.png", id:"bottle2"},
 		{src:"images/bottle3.png", id:"bottle3"},
-		{src:"images/_img.png", id:"_img"},
+		{src:"images/img.png", id:"_img"},
 		{src:"images/strawberry.png", id:"strawberry"}
 	],
 	preloads: []

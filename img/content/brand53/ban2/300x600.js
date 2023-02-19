@@ -609,7 +609,7 @@ lib.properties = {
 	opacity: 1.00,
 	manifest: [
 		{src:"images/bgImg.jpg", id:"bgImg"},
-		{src:"images/_img.jpg", id:"_img"}
+		{src:"images/img.jpg", id:"_img"}
 	],
 	preloads: []
 };
