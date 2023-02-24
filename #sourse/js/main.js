@@ -376,11 +376,11 @@ var content =
 		{ "numBanners": "15" }, //brand 97   
 		{ "numBanners": "5" }, //brand 98   
 		{ "numBanners": "48" }, //brand 99   
-		{ "numBanners": "25" },  //brand 100   
+		{ "numBanners": "26" },  //brand 100   
 		{ "numBanners": "11" }, //brand 101   
 		{ "numBanners": "109" }, //brand 102  
 		{ "numBanners": "21" }, //brand 103   
-		{ "numBanners": "15" } //brand 104      
+		{ "numBanners": "17" } //brand 104      
 	]
 }
 
