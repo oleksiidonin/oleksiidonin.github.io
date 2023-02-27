@@ -604,6 +604,7 @@ function setVideo() {
 		if (mainLogo != null && mainLogo != undefined) {
 			if (!mainLogo.classList.contains('closeMainLogo')) {
 				body.style.overflow = 'visible';
+				body.style.paddingRight = '0px';
 				mainLogo.classList.toggle('closeMainLogo');
 				mainLogo.addEventListener('transitionend', function () {
 					createjs.Ticker.removeEventListener("tick", stage);
@@ -632,6 +633,16 @@ function setVideo() {
 //------------------------------------------- Интро
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function initIntro() {
+
+	let main_preloader_padding = window.innerWidth - mainLogo.offsetWidth + 'px';
+	//console.log(window.innerWidth);
+	//console.log(mainLogo.offsetWidth);
+	//console.log(main_preloader_padding);
+	body.style.paddingRight = main_preloader_padding;
+	//mainLogo.style.paddingRight = '100px';
+	//body.style.paddingRight = '50px';
+	body.style.overflow = 'hidden';
+
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
 	dom_overlay_container = document.getElementById("dom_overlay_container");
