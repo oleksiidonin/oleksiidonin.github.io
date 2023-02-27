@@ -606,12 +606,25 @@ function setVideo() {
 		if (mainLogo != null && mainLogo != undefined) {
 			if (!mainLogo.classList.contains('closeMainLogo')) {
 				body.style.overflow = 'visible';
-				body.style.paddingRight = '0px';
+				mainLogo.style.paddingRight = '0px';
 				mainLogo.classList.toggle('closeMainLogo');
 				mainLogo.addEventListener('transitionend', function () {
 					createjs.Ticker.removeEventListener("tick", stage);
 					body.removeChild(mainLogo);
 				});
+
+
+				/*
+				body.addEventListener("click", function (event) {
+					if (body.style.overflow == 'hidden') {
+						body.style.overflow = 'visible';
+						mainLogo.style.paddingRight = '0px';
+					} else {
+						body.style.overflow = 'hidden';
+						mainLogo.style.paddingRight = main_preloader_padding + 'px';
+					}
+				});
+				*/
 			}
 		}
 
@@ -637,7 +650,7 @@ var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAni
 function initIntro() {
 
 	main_preloader_padding = window.innerWidth - mainLogo.offsetWidth;
-	body.style.paddingRight = main_preloader_padding + 'px';
+	mainLogo.style.paddingRight = main_preloader_padding + 'px';
 	body.style.overflow = 'hidden';
 	initContent();
 
