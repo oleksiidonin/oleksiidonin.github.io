@@ -17,6 +17,8 @@ const socialIcons = document.querySelectorAll('.contacts__img');
 const mainVideo = document.querySelector('.main__video');
 const mainLogo = document.querySelector('.main_preloader');
 
+var main_preloader_padding;
+
 
 
 "use strict"
@@ -386,7 +388,7 @@ var content =
 
 function initContent() {
 	//let bannersConteinerWidth = parseInt(getComputedStyle(bannersConteiner).width);
-	let bannersConteinerWidth = parseInt(document.documentElement.clientWidth);
+	let bannersConteinerWidth = parseInt(document.documentElement.clientWidth) - main_preloader_padding;
 
 	let numGor = Math.floor((bannersConteinerWidth - 10 * fontS) / 300);
 	let bannersGap;
@@ -634,14 +636,10 @@ function setVideo() {
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function initIntro() {
 
-	let main_preloader_padding = window.innerWidth - mainLogo.offsetWidth + 'px';
-	//console.log(window.innerWidth);
-	//console.log(mainLogo.offsetWidth);
-	//console.log(main_preloader_padding);
-	body.style.paddingRight = main_preloader_padding;
-	//mainLogo.style.paddingRight = '100px';
-	//body.style.paddingRight = '50px';
+	main_preloader_padding = window.innerWidth - mainLogo.offsetWidth;
+	body.style.paddingRight = main_preloader_padding + 'px';
 	body.style.overflow = 'hidden';
+	initContent();
 
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
@@ -711,5 +709,5 @@ window.onload = function () {
 	setFontSize();
 	setVideo();
 	initIntro();
-	initContent();
+	//initContent();
 }
