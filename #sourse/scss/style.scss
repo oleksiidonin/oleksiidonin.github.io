@@ -229,19 +229,6 @@ body {
 	flex-direction: column;
 	margin: 3vw 0 3vw 0;
 	background: rgb(0, 0, 0); /* Old browsers */
-	background: -moz-radial-gradient(center, ellipse cover, rgba(53, 53, 53, 1) 0%, rgba(0, 0, 0, 1) 65%); /* FF3.6-15 */
-	background: -webkit-radial-gradient(
-		center,
-		ellipse cover,
-		rgba(53, 53, 53, 1) 0%,
-		rgba(0, 0, 0, 1) 65%
-	); /* Chrome10-25,Safari5.1-6 */
-	background: radial-gradient(
-		ellipse at center,
-		rgba(53, 53, 53, 1) 0%,
-		rgba(0, 0, 0, 1) 65%
-	); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353535', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 	&__conteiner {
 		display: grid;
