@@ -270,7 +270,7 @@ function setFontSize() {
 
 //------------------------ Галерея баннеров
 
-var numBrands = 104;
+var numBrands = 105;
 var num, numGor;
 
 const moreBtn = document.querySelector('.works .loadMore__conteiner');
@@ -371,18 +371,19 @@ var content =
 		{ "numBanners": "5" }, //brand 90   
 		{ "numBanners": "9" }, //brand 91   
 		{ "numBanners": "5" }, //brand 92   
-		{ "numBanners": "11" }, //brand 93   
-		{ "numBanners": "2" }, //brand 94   
-		{ "numBanners": "6" }, //brand 95   
-		{ "numBanners": "3" }, //brand 96   
-		{ "numBanners": "15" }, //brand 97   
-		{ "numBanners": "5" }, //brand 98   
-		{ "numBanners": "48" }, //brand 99   
-		{ "numBanners": "26" },  //brand 100   
-		{ "numBanners": "11" }, //brand 101   
-		{ "numBanners": "109" }, //brand 102  
-		{ "numBanners": "21" }, //brand 103   
-		{ "numBanners": "17" } //brand 104      
+		{ "numBanners": "3" }, //brand 93   
+		{ "numBanners": "11" }, //brand 94   
+		{ "numBanners": "2" }, //brand 95   
+		{ "numBanners": "6" }, //brand 96   
+		{ "numBanners": "3" }, //brand 97   
+		{ "numBanners": "15" }, //brand 98   
+		{ "numBanners": "5" }, //brand 99   
+		{ "numBanners": "48" }, //brand 100   
+		{ "numBanners": "26" },  //brand 101   
+		{ "numBanners": "11" }, //brand 102   
+		{ "numBanners": "109" }, //brand 103  
+		{ "numBanners": "21" }, //brand 104   
+		{ "numBanners": "17" } //brand 105      
 	]
 }
 
