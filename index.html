@@ -16,12 +16,41 @@
 	<link rel="stylesheet" href="css/style.css" />
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<!-- 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
--->
+
 </head>
 
 <body>
+	<div class="menu scrollto">
+		<div class="menu__conteiner">
+			<ul class="menu__list">
+				<li class="menu__link">
+					<a href="#empty">main</a>
+					<div class="menu__link-line"></div>
+				</li>
+				<li class="menu__link">
+					<a href="#about">about me</a>
+					<div class="menu__link-line"></div>
+				</li>
+				<li class="menu__link">
+					<a href="#works">works</a>
+					<div class="menu__link-line"></div>
+				</li>
+				<li class="menu__link">
+					<a href="#contacts">contacts</a>
+					<div class="menu__link-line"></div>
+				</li>
+			</ul>
+
+			<div class="menuBg"></div>
+		</div>
+		<div class="burger">
+			<div class="plus">
+				<div class="plus__gor"></div>
+				<div class="plus__vert"></div>
+			</div>
+		</div>
+	</div>
+
 	<div class="main_preloader">
 		<div id="animation_container" style="background-color:rgba(255, 255, 255, 0.00);">
 			<canvas id="canvas"
@@ -34,534 +63,67 @@
 
 
 	</div>
-<header class="header">
-	<div class="header__body scrollto">
-		<div class="header__menu">
-			<ul class="header__list">
-				<li class="header__link">
-					<a href="#main">main</a>
-					<div class="header__link-line"></div>
-				</li>
-				<li class="header__link">
-					<a href="#about">about me</a>
-					<div class="header__link-line"></div>
-				</li>
-				<li class="header__link">
-					<a href="#works">works</a>
-					<div class="header__link-line"></div>
-				</li>
-			</ul>
-			<div class="menuBg"></div>
-		</div>
-		<div class="plus">
-			<div class="plus__gor"></div>
-			<div class="plus__vert"></div>
-		</div>
-	</div>
-	<div class="header__contacts">
-		<div class="contacts__conteiner">
-			<div class="contacts__content">
-				<div class="contacts__title">contact me:</div>
-				<div class="contacts__email block__conteiner">
-					<div class="email__icon">
-						<a href="mailto:oleksii.donin@gmail.com">
-							<img src="img/icons/eMail.svg">
-						</a>
-					</div>
-					<div class="email__text">
-						<a href="mailto:oleksii.donin@gmail.com">oleksii.donin@gmail.com</a>
-					</div>
-				</div>
-				<div class="block__conteiner">
-					<div class="contacts__icon">
-						<a href="https://www.linkedin.com/in/oleksii-donin/" target="_blank">
-							<img src="img/icons/linkedin.svg" class="contacts__img">
-						</a>
-					</div>
-					<div class="contacts__icon">
-						<a href="http://www.behance.net/oleksiidonin" target="_blank">
-							<img src="img/icons/behance.svg" class="contacts__img">
-						</a>
-					</div>
-					<div class="contacts__icon">
-						<a href="https://dribbble.com/OleksiiDonin" target="_blank">
-							<img src="img/icons/dribbble.svg" class="contacts__img">
-						</a>
-					</div>
-					<div class="contacts__icon">
-						<a href="tg://resolve?domain=oleksiidonin">
-							<img src="img/icons/telegram.svg" class="contacts__img">
-						</a>
-					</div>
-					<div class="contacts__icon">
-						<a href="skype:alexey.donin?chat">
-							<img src="img/icons/skype.svg" class="contacts__img">
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="plus">
-			<div class="plus__gor"></div>
-			<div class="plus__vert"></div>
-		</div>
-	</div>
-</header>
+
+
 	<div class="wrapper">
 		<section id="main" class="main">
-			<div class="main__video"></div>
 			<div class="main__logo">
 				<img src="img/logo.svg">
 			</div>
+			<div class="main__video"></div>
 		</section>
+		<section id="empty" class="empty"></section>
 		<section id="about" class="about">
 			<div class="about__conteiner">
-				<div class="about__block">
-					<div class="about__title">about me</div>
-					<div class="about__text">
-						I’m a professional digital designer/developer from Ukraine with more than fifteen years of digital
-						experience. My main specialization is banner ads development. I can create Rich Media ads and HTML5,
-						AMP HTML, and GIF animated standard banner ads. I also have strong motion design, web/digital design,
-						and front-end web development skills.
+				<div class="about__title pagetitle">about me</div>
+				<div class="about__main-text">
+					Hello, my name is Oleksii Donin. I’m a professional digital designer/developer from Ukraine with more
+					than fifteen years of digital experience. My main specialization is banner ads development. I also have
+					strong motion design, web/digital design, and front-end development skills.
+				</div>
+				<div class="about__text-conteiner">
+					<div class="about__text-block">
+						<div class="about__text-title">Experience:</div>
+						<div class="about__text-text">
+							Worked as freelance digital designer/developer with Ukrainian branches of Publicis, Universal
+							McCann, Philip Morris International, Havas Group, Mediacom, Twiga Ukraine, BBDO and many others.
+						</div>
+					</div>
+					<div class="about__text-block">
+						<div class="about__text-title">Clients:</div>
+						<div class="about__text-text">
+							IQOS, McDonald's, Nescafé, Renault, Lay's, Pepsi, Toyota, Lexus, Sanofi, Samsung, Nutricia and many
+							others.
+						</div>
+					</div>
+					<div class="about__text-block">
+						<div class="about__text-title">Services:</div>
+						<div class="about__text-text">
+							<ul>
+								<li>Banner ads development (Rich Media, HTML5, AMP HTML, GIF)</li>
+								<li>Motion design (movies for social media) </li>
+								<li>Web design</li>
+								<li>Front-end development</li>
+							</ul>
+						</div>
 					</div>
 				</div>
-				<div class="about__image">
-					<img src="../img/avatar.png">
-					<div class="image__text">
-						<div class="image__thinText">Hi! I’m</div>
-						<div class="image__name">Oleksii Donin</div>
+				<div class="about__image"></div>
+				<div class="download__conteiner">
+					<div class="download__text">
+						<a href="resume.pdf" download="">Download resume</a>
 					</div>
-					<div class="download__conteiner">
-						<div class="download__text">
-							<a href="resume.pdf" download="">Download resume</a>
-						</div>
-						<div class="download__icon">
-							<a href="resume.pdf" download=""><img src="img/icons/download.svg"></a>
-						</div>
+					<div class="download__icon">
+						<a href="resume.pdf" download=""><img src="img/icons/download.svg"></a>
 					</div>
 				</div>
-				<div class="about__block">
-					<div class="about__title">education</div>
-					<div class="about__text">
-						<div class="boldText">Creative Practice <span class="small__text">(2021 — 2022)</span></div>
-						<ul class="about__list">
-							<li class="about__list-line">
-								<div class="list__point-conteiner">
-									<div class="list__point"></div>
-								</div>
-								<div><a href="https://cases.media/cert/T66HZD?locale=en" target="_blank">Web Design Basics</a>
-								</div>
-							</li>
-							<li class="about__list-line">
-								<div class="list__point-conteiner">
-									<div class="list__point"></div>
-								</div>
-								<div><a href="https://cases.media/cert/D3YDHV?locale=en" target="_blank">Design Basics</a></div>
-							</li>
-							<li class="about__list-line">
-								<div class="list__point-conteiner">
-									<div class="list__point"></div>
-								</div>
-								<div><a href="https://cases.media/cert/057ZT8?locale=en" target="_blank">Figma Basics</a></div>
-							</li>
-							<li class="about__list-line">
-								<div class="list__point-conteiner">
-									<div class="list__point"></div>
-								</div>
-								<div><a href="https://cases.media/cert/54A61X?locale=en" target="_blank">After Effects
-										Basics</a></div>
-							</li>
-						</ul>
-						<div class="boldText">Priazovskiy State Technical University <span class="small__text">(2003 —
-								2008)</span></div>
-						<ul class="about__list">
-							<li class="about__list-line">
-								<div class="list__point-conteiner">
-									<div class="list__point"></div>
-								</div>
-								<div>Automation of technological processes and manufactures</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="about__block">
-					<div class="about__title">experience</div>
-					<div class="experience__block">
-						<div class="experience__date small__text">10.2008 — till now</div>
-						<div class="experience__title boldText">
-							Freelance digital designer/developer
-						</div>
-						<div class="experience__text small__text">
-							worked as freelancer with Ukrainian branches of Publicis, Universal McCann, Philip Morris
-							International, Havas Group, Mediacom, Twiga Ukraine, BBDO and many others.
-						</div>
-					</div>
-					<div class="experience__block">
-						<div class="experience__date small__text">05.2008 — 10.2008</div>
-						<div class="experience__title boldText">
-							Handmade Interactive Ltd
-						</div>
-						<div class="experience__text">
-							Front-end web developer
-						</div>
-					</div>
-					<div class="experience__block">
-						<div class="experience__date small__text">03.2007 — 04.2008</div>
-						<div class="experience__title boldText">
-							Mariupolcity Ltd
-						</div>
-						<div class="experience__text">
-							Adobe Flash developer
-						</div>
-					</div>
+			</div>
 
-				</div>
-				<div class="about__block">
-					<div class="about__title">soft skills</div>
-					<ul class="about__list">
-						<li class="about__list-line">
-							<div class="list__point-conteiner">
-								<div class="list__point"></div>
-							</div>
-							<div>Time management</div>
-						</li>
-						<li class="about__list-line">
-							<div class="list__point-conteiner">
-								<div class="list__point"></div>
-							</div>
-							<div>Adaptability</div>
-						</li>
-						<li class="about__list-line">
-							<div class="list__point-conteiner">
-								<div class="list__point"></div>
-							</div>
-							<div>Communication</div>
-						</li>
-						<li class="about__list-line">
-							<div class="list__point-conteiner">
-								<div class="list__point"></div>
-							</div>
-							<div>Teamwork</div>
-						</li>
-						<li class="about__list-line">
-							<div class="list__point-conteiner">
-								<div class="list__point"></div>
-							</div>
-							<div>Problem-solving</div>
-						</li>
-						<li class="about__list-line">
-							<div class="list__point-conteiner">
-								<div class="list__point"></div>
-							</div>
-							<div>Creativity</div>
-						</li>
-						<li class="about__list-line">
-							<div class="list__point-conteiner">
-								<div class="list__point"></div>
-							</div>
-							<div>Openness to criticism</div>
-						</li>
-						<li class="about__list-line">
-							<div class="list__point-conteiner">
-								<div class="list__point"></div>
-							</div>
-							<div>Critical thinking</div>
-						</li>
-						<li class="about__list-line">
-							<div class="list__point-conteiner">
-								<div class="list__point"></div>
-							</div>
-							<div>Resourcefulness</div>
-						</li>
-					</ul>
-				</div>
-				<div class="about__block">
-					<div class="about__title">software</div>
-					<div class="rating__block">
-						<div class="rating__title">Adobe Animate</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Google Web Designer</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Adobe Photoshop</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Figma</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Adobe After Effects</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Adobe Illustrator</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-				</div>
-				<div class="about__block">
-					<div class="about__title">coding</div>
-					<div class="rating__block">
-						<div class="rating__title">HTML5</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">AMP HTML</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">CSS3</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Java Script</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Action Script 3</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-				</div>
-				<div class="about__block">
-					<div class="about__title">languages</div>
-					<div class="rating__block">
-						<div class="rating__title">Ukrainian</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">English</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Russian</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-						</div>
-					</div>
-				</div>
-				<div class="about__block">
-					<div class="about__title">hard skills</div>
-					<div class="rating__block">
-						<div class="rating__title">Banner ads production</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Motion design</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point "></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Web / digital design</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point "></div>
-							<div class="rating__point greyPoint"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-					<div class="rating__block">
-						<div class="rating__title">Front end development</div>
-						<div class="rating__grade">
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point"></div>
-							<div class="rating__point greyPoint"></div>
-						</div>
-					</div>
-				</div>
 
 		</section>
 		<section id="works" class="works">
+			<div class="works__title pagetitle">works</div>
 			<div class="works__conteiner">
-
 			</div>
 			<div class="loadMore__conteiner">
 				<div class="loadMore__button">
@@ -569,15 +131,68 @@
 				</div>
 			</div>
 		</section>
-		<section class="footer small__text">© 2022 Oleksii Donin.</section>
+		<section id="contacts" class="contacts">
+			<div class="contacts__conteiner">
+				<div class="contacts__title pagetitle">contacts</div>
+				<div class="contacts__text">Let's work together</div>
+				<div class="contacts__content">
+					<div class="contacts__block">
+						<div class="contacts__email">
+							<div class="email__icon">
+								<a href="mailto:oleksii.donin@gmail.com">
+									<img src="img/icons/eMail.svg">
+								</a>
+							</div>
+							<div class="email__text">
+								<a href="mailto:oleksii.donin@gmail.com">oleksii.donin@gmail.com</a>
+							</div>
+						</div>
+					</div>
+					<div class="contacts__block">
+						<div class="block__conteiner">
+							<div class="contacts__icon">
+								<a href="https://www.linkedin.com/in/oleksii-donin/" target="_blank">
+									<img src="img/icons/linkedin.svg" class="contacts__img">
+								</a>
+							</div>
+							<div class="contacts__icon">
+								<a href="http://www.behance.net/oleksiidonin" target="_blank">
+									<img src="img/icons/behance.svg" class="contacts__img">
+								</a>
+							</div>
+							<div class="contacts__icon">
+								<a href="https://dribbble.com/OleksiiDonin" target="_blank">
+									<img src="img/icons/dribbble.svg" class="contacts__img">
+								</a>
+							</div>
+							<div class="contacts__icon">
+								<a href="tg://resolve?domain=oleksiidonin">
+									<img src="img/icons/telegram.svg" class="contacts__img">
+								</a>
+							</div>
+							<div class="contacts__icon">
+								<a href="skype:alexey.donin?chat">
+									<img src="img/icons/skype.svg" class="contacts__img">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				© 2023 Oleksii Donin.
+			</div>
+		</section>
 	</div>
 
 	<section class="popUp">
-
-		<div class="plus openPlus">
-			<div class="plus__gor"></div>
-			<div class="plus__vert"></div>
+		<div class="burger">
+			<div class="plus openPlus">
+				<div class="plus__gor"></div>
+				<div class="plus__vert"></div>
+			</div>
 		</div>
+
 		<div class="popUp__main-conteiner">
 			<div class="popUp__conteiner"></div>
 		</div>

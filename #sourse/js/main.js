@@ -1,22 +1,22 @@
 
-const obj0 = document.querySelectorAll('.about__block')[0];
+//const obj0 = document.querySelectorAll('.about__block')[0];
 var fontS;
 var popUpBool = false;
 const body = document.querySelector('body');
-const menuButtons = document.querySelector('.header__body');
-const menuPlusButton = document.querySelector('.header__body .plus');
-const menuItems = document.querySelector('.header__menu');
+const menuButtons = document.querySelector('.menu');
+const burger = document.querySelector('.burger');
+const burger_plus = document.querySelector('.burger .plus');
+const menuItems = document.querySelector('.menu__conteiner');
 const menuBg = document.querySelector('.menuBg');
-const headerLink = document.querySelectorAll('.header__list li');
-const contactsHeader = document.querySelector('.header__contacts');
-const contactsButton = document.querySelector('.header__contacts .plus');
-const contactsConteiner = document.querySelector('.contacts__conteiner');
-const contactsTitle = document.querySelector('.contacts__title');
-const contactsEmail = document.querySelector('.contacts__email');
-const socialIcons = document.querySelectorAll('.contacts__img');
+const headerLink = document.querySelectorAll('.menu__list li');
+//const contactsHeader = document.querySelector('.header__contacts');
+//const contactsButton = document.querySelector('.header__contacts .plus');
+//const contactsConteiner = document.querySelector('.contacts__conteiner');
+//const contactsTitle = document.querySelector('.contacts__title');
+//const contactsEmail = document.querySelector('.contacts__email');
+//const socialIcons = document.querySelectorAll('.contacts__img');
 const mainVideo = document.querySelector('.main__video');
 const mainLogo = document.querySelector('.main_preloader');
-
 var main_preloader_padding;
 
 
@@ -57,56 +57,43 @@ if (isMobile.any()) {
 }
 
 function setHeaderlinkOpenClass(obj) {
-	obj.classList.toggle('headerLik_open');
+	obj.classList.toggle('menuLink_open');
 
 }
 function hideMainMenu() {
-	menuPlusButton.classList.toggle('openPlus');
+	burger_plus.classList.toggle('openPlus');
 	menuBg.classList.toggle('openMenuBg');
 	menuBg.addEventListener('transitionend', backMenuZindex);
 }
 function backMenuZindex() {
-	menuButtons.style.zIndex = "1";
-	menuItems.style.width = "auto";
-	menuItems.style.height = "auto";
+	menuItems.style.visibility = "hidden";
 	menuBg.removeEventListener('transitionend', backMenuZindex);
+	menuButtons.addEventListener("click", menuButtonsFun);
 }
-menuButtons.addEventListener("click", function (event) {
-	let curWidth = parseInt(window.innerWidth);
-	if (!isMobile.any()) {
-		if (event.target.closest('.plus')) {
-			if (!menuPlusButton.classList.contains('openPlus')) {
-				menuPlusButton.classList.toggle('openPlus');
-				menuBg.classList.toggle('openMenuBg');
-				let delay = 500;
-				for (const item of headerLink) {
-					let timerId = setTimeout(setHeaderlinkOpenClass, delay, item);
-					delay -= delay / headerLink.length;
-				}
-			} else {
-				let delay = 0;
-				for (const item of headerLink) {
-					let timerId = setTimeout(setHeaderlinkOpenClass, delay, item);
-					delay += 500 / headerLink.length;
-				}
-				let timerId2 = setTimeout(hideMainMenu, 500 / headerLink.length);
-			}
-		}
-	} else {
-		if (event.target.closest('.plus')) {
-			if (!menuPlusButton.classList.contains('openPlus')) {
+menuButtons.addEventListener("click", menuButtonsFun);
+function menuButtonsFun(event) {
+	if (isMobile.any()) {
+		menuButtons.removeEventListener("click", menuButtonsFun);
+		if (event.target.closest('.burger')) {
+			if (!burger_plus.classList.contains('openPlus')) {
+				menuItems.style.visibility = "visible";
+				body.style.overflow = 'hidden';
 				menuButtons.style.zIndex = "10";
 				menuItems.style.width = "100%";
 				menuItems.style.height = "100%";
-				menuPlusButton.classList.toggle('openPlus');
+				burger_plus.classList.toggle('openPlus');
 				menuBg.classList.toggle('openMenuBg');
 				let delay = 500;
-
-				//menuBg.addEventListener('transitionend', mobileMenuIsOpened);
+				let num = 0;
 				for (const item of headerLink) {
 					let timerId = setTimeout(setHeaderlinkOpenClass, delay, item);
 					delay += delay / headerLink.length;
+					num++;
+					if (num == 4) {
+						menuButtons.addEventListener("click", menuButtonsFun);
+					}
 				}
+
 			} else {
 				let delay = 0;
 				body.style.overflow = 'visible';
@@ -118,111 +105,33 @@ menuButtons.addEventListener("click", function (event) {
 			}
 		}
 	}
-});
+}
+
 function mobileMenuIsOpened() {
 	body.style.overflow = 'hidden';
 	menuBg.removeEventListener('transitionend', mobileMenuIsOpened);
 }
-function showContactsTitle() {
-	contactsTitle.classList.toggle('contacts__block-visible');
-}
-function showContactsEmail() {
-	contactsEmail.classList.toggle('contacts__block-visible');
-}
-function showSocialIcon(obj) {
-	obj.classList.toggle('showSocialIcon');
-}
-function hideContactsBg() {
-	contactsButton.classList.toggle('openPlus');
-	contactsConteiner.classList.toggle('openContactasBG');
-	contactsConteiner.addEventListener('transitionend', backContactsZindex);
 
-}
-function backContactsZindex() {
-	contactsHeader.style.zIndex = "1"
-	contactsConteiner.removeEventListener('transitionend', backMenuZindex);
-}
-contactsButton.addEventListener("click", function (event) {
-	//console.log(contactsHeader);
 
-	let curWidth = parseInt(window.innerWidth);
-	if (!isMobile.any()) {
-		if (event.target.closest('.plus')) {
-			if (!contactsButton.classList.contains('openPlus')) {
-				contactsButton.classList.toggle('openPlus');
-				contactsConteiner.classList.toggle('openContactasBG');
-				let delay = 500;
-				let timerId = setTimeout(showContactsTitle, delay);
-				delay += 100;
-				timerId = setTimeout(showContactsEmail, delay);
-				for (const item of socialIcons) {
-					delay += 100;
-					timerId = setTimeout(showSocialIcon, delay, item);
-				}
-			} else {
-				let delay = 0;
-				let timerId = setTimeout(showContactsTitle, delay);
-				delay += 100;
-				timerId = setTimeout(showContactsEmail, delay);
-				for (const item of socialIcons) {
-					delay += 100;
-					timerId = setTimeout(showSocialIcon, delay, item);
-				}
-				timerId = setTimeout(hideContactsBg, delay);
-			}
-		}
-	} else {
-		if (event.target.closest('.plus')) {
-			if (!contactsButton.classList.contains('openPlus')) {
-				contactsButton.classList.toggle('openPlus');
-				contactsHeader.style.zIndex = "10";
-				contactsConteiner.classList.toggle('openContactasBG');
-				let delay = 500;
-				let timerId = setTimeout(showContactsTitle, delay);
-				delay += 100;
-				timerId = setTimeout(showContactsEmail, delay);
-
-				for (const item of socialIcons) {
-					delay += 100;
-					timerId = setTimeout(showSocialIcon, delay, item);
-				}
-
-			} else {
-				//contactsButton.classList.toggle('openPlus');
-				//contactsConteiner.classList.toggle('openContactasBG');
-				let delay = 0;
-				let timerId = setTimeout(showContactsTitle, delay);
-				delay += 100;
-				timerId = setTimeout(showContactsEmail, delay);
-
-				for (const item of socialIcons) {
-					delay += 100;
-					timerId = setTimeout(showSocialIcon, delay, item);
-				}
-				delay += 300;
-				timerId = setTimeout(hideContactsBg, delay);
-			}
-		}
-	}
-});
 menuButtons.addEventListener("mouseover", function (event) {
 	if (!isMobile.any()) {
-		if (event.target.closest('.header__link')) {
-			const item = event.target.closest('.header__link');
-			const curline = item.querySelector('.header__link-line');
+		if (event.target.closest('.menu__link')) {
+			const item = event.target.closest('.menu__link');
+			const curline = item.querySelector('.menu__link-line');
 			curline.classList.toggle('openLineMenu');
 		}
 	}
 });
 menuButtons.addEventListener("mouseout", function (event) {
 	if (!isMobile.any()) {
-		if (event.target.closest('.header__link')) {
-			const item = event.target.closest('.header__link');
-			const curline = item.querySelector('.header__link-line');
+		if (event.target.closest('.menu__link')) {
+			const item = event.target.closest('.menu__link');
+			const curline = item.querySelector('.menu__link-line');
 			curline.classList.toggle('openLineMenu');
 		}
 	}
 });
+
 //------------------------ Скролл при клике на меню
 document.querySelectorAll('a[href^="#"').forEach(link => {
 
@@ -243,8 +152,8 @@ document.querySelectorAll('a[href^="#"').forEach(link => {
 
 		const scrollTarget = document.getElementById(href);
 
-		const topOffset = document.querySelector('.scrollto').offsetHeight;
-		//const topOffset = 0; // если не нужен отступ сверху 
+		//const topOffset = document.querySelector('.scrollto').offsetHeight;
+		const topOffset = 0; // если не нужен отступ сверху 
 		const elementPosition = scrollTarget.getBoundingClientRect().top;
 		const offsetPosition = elementPosition - topOffset;
 
@@ -258,8 +167,8 @@ document.querySelectorAll('a[href^="#"').forEach(link => {
 
 //------------------------ Размер шрифтов
 function setFontSize() {
-	let curWidth = parseInt(window.getComputedStyle(obj0, null).getPropertyValue('width'));
-	let curHeight = parseInt(window.getComputedStyle(obj0, null).getPropertyValue('height'));
+	//let curWidth = parseInt(window.getComputedStyle(obj0, null).getPropertyValue('width'));
+	//let curHeight = parseInt(window.getComputedStyle(obj0, null).getPropertyValue('height'));
 	let fontSizeW = (document.documentElement.clientWidth / 1440) * 15;
 	let fontSizeH = (document.documentElement.clientHeight / 900) * 15;
 	//fontS = (curWidth * curHeight) / (309 * 270);
@@ -270,7 +179,7 @@ function setFontSize() {
 
 //------------------------ Галерея баннеров
 
-var numBrands = 105;
+var numBrands = 106;
 var num, numGor;
 
 const moreBtn = document.querySelector('.works .loadMore__conteiner');
@@ -331,7 +240,7 @@ var content =
 		{ "numBanners": "5" }, //brand 50  
 		{ "numBanners": "1" }, //brand 51  
 		{ "numBanners": "6" }, //brand 52  
-		{ "numBanners": "4" }, //brand 53  
+		{ "numBanners": "5" }, //brand 53  
 		{ "numBanners": "2" }, //brand 54  
 		{ "numBanners": "5" }, //brand 55
 		{ "numBanners": "1" }, //brand 56  
@@ -350,10 +259,10 @@ var content =
 		{ "numBanners": "1" }, //brand 69  
 		{ "numBanners": "8" }, //brand 70  
 		{ "numBanners": "1" }, //brand 71  
-		{ "numBanners": "3" }, //brand 72  
+		{ "numBanners": "4" }, //brand 72  
 		{ "numBanners": "1" }, //brand 73  
 		{ "numBanners": "2" }, //brand 74  
-		{ "numBanners": "5" }, //brand 75  
+		{ "numBanners": "6" }, //brand 75  
 		{ "numBanners": "4" }, //brand 76  
 		{ "numBanners": "15" }, //brand 77  
 		{ "numBanners": "2" }, //brand 78   
@@ -361,31 +270,33 @@ var content =
 		{ "numBanners": "2" }, //brand 80  
 		{ "numBanners": "1" }, //brand 81   
 		{ "numBanners": "19" }, //brand 82  
-		{ "numBanners": "17" }, //brand 83  
+		{ "numBanners": "18" }, //brand 83  
 		{ "numBanners": "3" }, //brand 84   
-		{ "numBanners": "10" }, //brand 85   
+		{ "numBanners": "5" }, //brand 85   
 		{ "numBanners": "3" }, //brand 86   
-		{ "numBanners": "18" }, //brand 87   
+		{ "numBanners": "6" }, //brand 87   
 		{ "numBanners": "2" }, //brand 88   
 		{ "numBanners": "3" }, //brand 89   
 		{ "numBanners": "5" }, //brand 90   
-		{ "numBanners": "9" }, //brand 91   
+		{ "numBanners": "10" }, //brand 91   
 		{ "numBanners": "5" }, //brand 92   
 		{ "numBanners": "3" }, //brand 93   
-		{ "numBanners": "11" }, //brand 94   
+		{ "numBanners": "10" }, //brand 94   
 		{ "numBanners": "2" }, //brand 95   
-		{ "numBanners": "6" }, //brand 96   
+		{ "numBanners": "20" }, //brand 96   
 		{ "numBanners": "3" }, //brand 97   
-		{ "numBanners": "15" }, //brand 98   
-		{ "numBanners": "5" }, //brand 99   
+		{ "numBanners": "16" }, //brand 98   
+		{ "numBanners": "11" }, //brand 99   
 		{ "numBanners": "48" }, //brand 100   
-		{ "numBanners": "26" },  //brand 101   
-		{ "numBanners": "11" }, //brand 102   
+		{ "numBanners": "29" },  //brand 101   
+		{ "numBanners": "12" }, //brand 102   
 		{ "numBanners": "109" }, //brand 103  
 		{ "numBanners": "22" }, //brand 104   
-		{ "numBanners": "17" } //brand 105      
+		{ "numBanners": "18" }, //brand 105 
+		{ "numBanners": "2" } //brand 106      
 	]
 }
+
 
 function initContent() {
 	//let bannersConteinerWidth = parseInt(getComputedStyle(bannersConteiner).width);
@@ -467,11 +378,9 @@ function addNewBanners() {
 			}
 		}
 	}
-	setMargin();
-}
-function setMargin() {
 
 }
+
 
 //----------------------------------------PopUp
 const popUp = document.querySelector('.popUp');
@@ -556,7 +465,6 @@ function addNewPopUpBanners() {
 
 		}
 	}
-	setMargin();
 
 }
 //----------------------------------------
@@ -568,7 +476,7 @@ var videoPlay = false;
 window.addEventListener('resize', resizeWindow, false);
 function resizeWindow() {
 
-	numBrands = 104;
+	numBrands = 106;
 	setFontSize();
 	setVideo();
 	let oldBanners = document.querySelectorAll('.works__conteiner .banner');
@@ -606,26 +514,12 @@ function setVideo() {
 	if (videoPlay) {
 		if (mainLogo != null && mainLogo != undefined) {
 			if (!mainLogo.classList.contains('closeMainLogo')) {
-				body.style.overflow = 'visible';
 				mainLogo.style.paddingRight = '0px';
 				mainLogo.classList.toggle('closeMainLogo');
 				mainLogo.addEventListener('transitionend', function () {
 					createjs.Ticker.removeEventListener("tick", stage);
 					body.removeChild(mainLogo);
 				});
-
-
-				/*
-				body.addEventListener("click", function (event) {
-					if (body.style.overflow == 'hidden') {
-						body.style.overflow = 'visible';
-						mainLogo.style.paddingRight = '0px';
-					} else {
-						body.style.overflow = 'hidden';
-						mainLogo.style.paddingRight = main_preloader_padding + 'px';
-					}
-				});
-				*/
 			}
 		}
 
@@ -652,7 +546,6 @@ function initIntro() {
 
 	main_preloader_padding = window.innerWidth - mainLogo.offsetWidth;
 	mainLogo.style.paddingRight = main_preloader_padding + 'px';
-	body.style.overflow = 'hidden';
 	initContent();
 
 	canvas = document.getElementById("canvas");
@@ -677,7 +570,8 @@ function handleComplete(evt, comp) {
 		createjs.Ticker.setFPS(lib.properties.fps);
 		createjs.Ticker.addEventListener("tick", stage);
 	}
-	//Code to support hidpi screens and responsive scaling.
+
+	//Code to support hidpi screens and responsive scaling
 	function makeResponsive(isResp, respDim, isScale, scaleType) {
 		var lastW, lastH, lastS = 1;
 		window.addEventListener('resize', resizeCanvas);
