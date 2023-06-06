@@ -525,14 +525,14 @@ function setVideo() {
 
 		if (winW > winH) {
 			if (!videoG) {
-				mainVideo.innerHTML = '<video disablePictureInPicture controlsList="nodownload" autoplay="autoplay" muted loop preload="auto" class="main-background__video"><source type="video/webm" src="media/movie.webm"><source type="video/mp4" src="media/movie.mp4"></video>';
+				mainVideo.innerHTML = '<video controlsList="nodownload" autoplay="autoplay" preload="auto" muted="muted" disablepictureinpicture playsinline loop class="main-background__video"><source type="video/webm" src="media/movie.webm"><source type="video/mp4" src="media/movie.mp4"></video>';
 				videoG = true;
 				videoV = false;
 			}
 		}
 		else {
 			if (!videoV) {
-				mainVideo.innerHTML = '<video disablePictureInPicture controlsList="nodownload" autoplay="autoplay" muted loop preload="auto" class="main-background__video"><source type="video/webm" src="media/movie_vert.webm"><source type="video/mp4" src="media/movie_vert.mp4"></video>';
+				mainVideo.innerHTML = '<video controlsList="nodownload" autoplay="autoplay" preload="auto" muted="muted" disablepictureinpicture playsinline loop class="main-background__video"><source type="video/webm" src="media/movie_vert.webm"><source type="video/mp4" src="media/movie_vert.mp4"></video>';
 				videoG = false;
 				videoV = true;
 			}
