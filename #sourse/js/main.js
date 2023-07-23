@@ -277,7 +277,7 @@ var content =
 		{ "numBanners": "6" }, //brand 87   
 		{ "numBanners": "2" }, //brand 88   
 		{ "numBanners": "3" }, //brand 89   
-		{ "numBanners": "5" }, //brand 90   
+		{ "numBanners": "6" }, //brand 90   
 		{ "numBanners": "10" }, //brand 91   
 		{ "numBanners": "5" }, //brand 92   
 		{ "numBanners": "3" }, //brand 93   
@@ -288,12 +288,12 @@ var content =
 		{ "numBanners": "16" }, //brand 98   
 		{ "numBanners": "11" }, //brand 99   
 		{ "numBanners": "48" }, //brand 100   
-		{ "numBanners": "29" },  //brand 101   
+		{ "numBanners": "31" },  //brand 101   
 		{ "numBanners": "12" }, //brand 102   
 		{ "numBanners": "109" }, //brand 103  
 		{ "numBanners": "22" }, //brand 104   
 		{ "numBanners": "18" }, //brand 105 
-		{ "numBanners": "2" } //brand 106      
+		{ "numBanners": "3" } //brand 106      
 	]
 }
 
