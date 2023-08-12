@@ -611,7 +611,7 @@ lib.properties = {
 		{src:"images/box3.png", id:"box3"},
 		{src:"images/coffee.png", id:"coffee"},
 		{src:"images/cup1.png", id:"cup1"},
-		{src:"images/_img.png", id:"_img"},
+		{src:"images/img.png", id:"_img"},
 		{src:"images/steam.png", id:"steam"},
 		{src:"images/t1.png", id:"t1"},
 		{src:"images/t2.png", id:"t2"},
