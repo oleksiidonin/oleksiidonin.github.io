@@ -56,8 +56,7 @@ if (reversed == null) { reversed = false; }
 
 	// timeline functions:
 	this.frame_0 = function() {
-		//this.t1.text = content.texts[0].text1;
-		this.t1.text = mob;
+		this.t1.text = content.texts[0].text1;
 		this.t2.text = content.texts[1].text2;
 		this.t3.text = content.texts[2].text3;
 	}
@@ -77,14 +76,14 @@ if (reversed == null) { reversed = false; }
 	this.t3.lineHeight = 53;
 	this.t3.lineWidth = 361;
 	this.t3.parent = this;
-	this.t3.setTransform(405.15,397.85);
+	this.t3.setTransform(405.15,393.85);
 
 	this.t2 = new cjs.Text("", "44px 'Inter Semi Bold'");
 	this.t2.name = "t2";
 	this.t2.lineHeight = 53;
 	this.t2.lineWidth = 686;
 	this.t2.parent = this;
-	this.t2.setTransform(-843.85,227.05);
+	this.t2.setTransform(-843.85,225.05);
 
 	this.t1 = new cjs.Text("", "44px 'Inter Semi Bold'");
 	this.t1.name = "t1";
@@ -155,8 +154,7 @@ if (reversed == null) { reversed = false; }
 
 	// timeline functions:
 	this.frame_0 = function() {
-		//this.t1.text = content.texts[0].text1;
-		this.t1.text = mob;
+		this.t1.text = content.texts[0].text1;
 		this.t2.text = content.texts[1].text2;
 		this.t3.text = content.texts[2].text3;
 	}
@@ -190,7 +188,7 @@ if (reversed == null) { reversed = false; }
 	this.t1.lineHeight = 53;
 	this.t1.lineWidth = 703;
 	this.t1.parent = this;
-	this.t1.setTransform(-523.1,-347.05);
+	this.t1.setTransform(-523.1,-349.05);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.t1},{t:this.t2},{t:this.t3}]}).wait(2));
 
