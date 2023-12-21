@@ -247,14 +247,14 @@ if (reversed == null) { reversed = false; }
 	this.t3.lineHeight = 58;
 	this.t3.lineWidth = 364;
 	this.t3.parent = this;
-	this.t3.setTransform(405.1,387.85);
+	this.t3.setTransform(405.1,383.85);
 
 	this.t2 = new cjs.Text("", "44px 'Roboto Mono SemiBold'");
 	this.t2.name = "t2";
 	this.t2.lineHeight = 58;
 	this.t2.lineWidth = 692;
 	this.t2.parent = this;
-	this.t2.setTransform(-843.85,217.05);
+	this.t2.setTransform(-843.85,213.05);
 
 	this.t1 = new cjs.Text("", "44px 'Roboto Mono SemiBold'");
 	this.t1.name = "t1";
