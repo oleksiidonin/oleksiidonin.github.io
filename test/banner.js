@@ -2,9 +2,70 @@
 
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
+lib.webFontTxtInst = {}; 
+var loadedTypekitCount = 0;
+var loadedGoogleCount = 0;
+var gFontsUpdateCacheList = [];
+var tFontsUpdateCacheList = [];
 lib.ssMetadata = [];
 
 
+
+lib.updateListCache = function (cacheList) {		
+	for(var i = 0; i < cacheList.length; i++) {		
+		if(cacheList[i].cacheCanvas)		
+			cacheList[i].updateCache();		
+	}		
+};		
+
+lib.addElementsToCache = function (textInst, cacheList) {		
+	var cur = textInst;		
+	while(cur != null && cur != exportRoot) {		
+		if(cacheList.indexOf(cur) != -1)		
+			break;		
+		cur = cur.parent;		
+	}		
+	if(cur != exportRoot) {		
+		var cur2 = textInst;		
+		var index = cacheList.indexOf(cur);		
+		while(cur2 != null && cur2 != cur) {		
+			cacheList.splice(index, 0, cur2);		
+			cur2 = cur2.parent;		
+			index++;		
+		}		
+	}		
+	else {		
+		cur = textInst;		
+		while(cur != null && cur != exportRoot) {		
+			cacheList.push(cur);		
+			cur = cur.parent;		
+		}		
+	}		
+};		
+
+lib.gfontAvailable = function(family, totalGoogleCount) {		
+	lib.properties.webfonts[family] = true;		
+	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
+	for(var f = 0; f < txtInst.length; ++f)		
+		lib.addElementsToCache(txtInst[f], gFontsUpdateCacheList);		
+
+	loadedGoogleCount++;		
+	if(loadedGoogleCount == totalGoogleCount) {		
+		lib.updateListCache(gFontsUpdateCacheList);		
+	}		
+};		
+
+lib.tfontAvailable = function(family, totalTypekitCount) {		
+	lib.properties.webfonts[family] = true;		
+	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
+	for(var f = 0; f < txtInst.length; ++f)		
+		lib.addElementsToCache(txtInst[f], tFontsUpdateCacheList);		
+
+	loadedTypekitCount++;		
+	if(loadedTypekitCount == totalTypekitCount) {		
+		lib.updateListCache(tFontsUpdateCacheList);		
+	}		
+};
 (lib.AnMovieClip = function(){
 	this.actionFrames = [];
 	this.ignorePause = false;
@@ -71,32 +132,44 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(2));
 
 	// Слой_8
-	this.t3 = new cjs.Text("", "44px 'Inter Semi Bold'");
+	this.t3 = new cjs.Text("", "normal 600 44px 'Roboto Mono'");
 	this.t3.name = "t3";
-	this.t3.lineHeight = 53;
+	this.t3.lineHeight = 58;
 	this.t3.lineWidth = 361;
 	this.t3.parent = this;
-	this.t3.setTransform(405.15,393.85);
+	this.t3.setTransform(405.15,395.85);
+	if(!lib.properties.webfonts['Roboto Mono']) {
+		lib.webFontTxtInst['Roboto Mono'] = lib.webFontTxtInst['Roboto Mono'] || [];
+		lib.webFontTxtInst['Roboto Mono'].push(this.t3);
+	}
 
-	this.t2 = new cjs.Text("", "44px 'Inter Semi Bold'");
+	this.t2 = new cjs.Text("", "normal 600 44px 'Roboto Mono'");
 	this.t2.name = "t2";
-	this.t2.lineHeight = 53;
+	this.t2.lineHeight = 58;
 	this.t2.lineWidth = 686;
 	this.t2.parent = this;
 	this.t2.setTransform(-843.85,225.05);
+	if(!lib.properties.webfonts['Roboto Mono']) {
+		lib.webFontTxtInst['Roboto Mono'] = lib.webFontTxtInst['Roboto Mono'] || [];
+		lib.webFontTxtInst['Roboto Mono'].push(this.t2);
+	}
 
-	this.t1 = new cjs.Text("", "44px 'Inter Semi Bold'");
+	this.t1 = new cjs.Text("", "normal 600 44px 'Roboto Mono'");
 	this.t1.name = "t1";
-	this.t1.lineHeight = 53;
+	this.t1.lineHeight = 58;
 	this.t1.lineWidth = 702;
 	this.t1.parent = this;
 	this.t1.setTransform(-523.1,-343.05);
+	if(!lib.properties.webfonts['Roboto Mono']) {
+		lib.webFontTxtInst['Roboto Mono'] = lib.webFontTxtInst['Roboto Mono'] || [];
+		lib.webFontTxtInst['Roboto Mono'].push(this.t1);
+	}
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.t1},{t:this.t2},{t:this.t3}]}).wait(2));
 
 	// Слой_5
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f().s("#000000").ss(4,0,0,4).p("ECQzBQ1IAAgUMAAKihVEiQ8BQ1IAAgUMAAUig3EiQ8BQhMEhvAAAEiQ8hQgMEhvAAA");
+	this.shape.graphics.f().s("#000000").ss(4,0,0,4).p("ECQzBQ1IAAgUMAAKihVEiQ8BQ1IAAgUMAAUig3EiQ8hQgMEhvAAAEiQ8BQhMEhvAAA");
 	this.shape.setTransform(-0.025,0.025);
 
 	this.shape_1 = new cjs.Shape();
@@ -169,32 +242,32 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(2));
 
 	// Слой_8
-	this.t3 = new cjs.Text("", "44px 'Inter Semi Bold'");
+	this.t3 = new cjs.Text("", "44px 'Roboto Mono SemiBold'");
 	this.t3.name = "t3";
-	this.t3.lineHeight = 53;
+	this.t3.lineHeight = 58;
 	this.t3.lineWidth = 364;
 	this.t3.parent = this;
 	this.t3.setTransform(405.1,387.85);
 
-	this.t2 = new cjs.Text("", "44px 'Inter Semi Bold'");
+	this.t2 = new cjs.Text("", "44px 'Roboto Mono SemiBold'");
 	this.t2.name = "t2";
-	this.t2.lineHeight = 53;
+	this.t2.lineHeight = 58;
 	this.t2.lineWidth = 692;
 	this.t2.parent = this;
-	this.t2.setTransform(-843.85,219.05);
+	this.t2.setTransform(-843.85,217.05);
 
-	this.t1 = new cjs.Text("", "44px 'Inter Semi Bold'");
+	this.t1 = new cjs.Text("", "44px 'Roboto Mono SemiBold'");
 	this.t1.name = "t1";
-	this.t1.lineHeight = 53;
+	this.t1.lineHeight = 58;
 	this.t1.lineWidth = 703;
 	this.t1.parent = this;
-	this.t1.setTransform(-523.1,-349.05);
+	this.t1.setTransform(-523.1,-355.05);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.t1},{t:this.t2},{t:this.t3}]}).wait(2));
 
 	// Слой_5
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f().s("#000000").ss(4,0,0,4).p("ECQzBQ1IAAgUMAAKihVEiQ8BQ1IAAgUMAAUig3EiQ8BQhMEhvAAAEiQ8hQgMEhvAAA");
+	this.shape.graphics.f().s("#000000").ss(4,0,0,4).p("ECQzBQ1IAAgUMAAKihVEiQ8BQ1IAAgUMAAUig3EiQ8hQgMEhvAAAEiQ8BQhMEhvAAA");
 	this.shape.setTransform(-0.025,0.025);
 
 	this.shape_1 = new cjs.Shape();
@@ -292,6 +365,7 @@ lib.properties = {
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
+	webfonts: {},
 	manifest: [
 		{src:"images/Group.png", id:"Group"},
 		{src:"images/Group_1.png", id:"Group_1"},
