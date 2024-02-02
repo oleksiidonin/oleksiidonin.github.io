@@ -75,7 +75,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 		exportRoot.addEventListener("tick", my_ticker_fun.bind(this));
 		
 		this.btn.addEventListener("mouseover", btnOver);
-		this.btn.addEventListener("touchstart", btnOver);
+		//this.btn.addEventListener("touchstart", btnOver);
 		function btnOver(evt) {
 			this.stop();
 			bool = true;
@@ -94,8 +94,8 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			}
 		}
 		this.btn.addEventListener("mouseout", btnOut);
-		this.btn.addEventListener("touchend", btnOut);
-		this.btn.addEventListener("touchcancel", btnOut);
+		//this.btn.addEventListener("touchend", btnOut);
+		//this.btn.addEventListener("touchcancel", btnOut);
 		function btnOut(evt) {
 			exportRoot.play();
 			bool = false;
@@ -119,19 +119,12 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	this.timeline.addTween(cjs.Tween.get(this.btn).wait(442));
 
-	// Слой_2
+	// Слой_1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#FF0000").s().p("AAKBtIAAi4IgBAAIgzAiIAAgfIA1gkIAgAAIAADZg");
-	this.shape.setTransform(17.1,29.7);
+	this.shape.graphics.f("#FF0000").s().p("AggAzIAAgLIAhgkIAJgIIAGgJQABgEAAgFQAAgHgFgEQgFgFgHAAQgIAAgFAFQgFAFAAAIIgPAAQAAgJAFgHQAEgHAHgEQAIgDAJAAQAJAAAHADQAIAEAEAGQAEAHAAAIQAAAGgCAFQgCAGgFAGIgPAPIgTAWIAAABIAtAAIAAAMg");
+	this.shape.setTransform(15.3,19.9);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(442));
-
-	// Слой_1
-	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("#FF0000").s().p("AAFAzIAAhWIgBAAIgXARIAAgPIAYgRIAPAAIAABlg");
-	this.shape_1.setTransform(13.8,20);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape_1).wait(442));
 
 	// mask (mask)
 	var mask = new cjs.Shape();
