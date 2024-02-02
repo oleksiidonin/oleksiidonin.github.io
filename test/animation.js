@@ -139,7 +139,7 @@ if (reversed == null) { reversed = false; }
 			}
 			this.stop();
 			bool = true;
-			
+			console.log("stagemousedown");
 		});
 		stage.on("stagemouseup", function(evt) {
 		    if (evt.cancelable) {
@@ -147,8 +147,16 @@ if (reversed == null) { reversed = false; }
 			}
 			exportRoot.play();
 			bool = false;
+			stage.addEventListener("tick", my_ticker_fun.bind(this));
+			console.log("stagemouseup");
 		});
-		
+		stage.on("stagemousemove", function(evt) {
+			if (evt.cancelable) {
+				evt.preventDefault();
+			}
+			exportRoot.gotoAndStop(parseInt(stage.mouseX/2) + 1);
+			console.log("stagemousedown");
+		});
 		function btnOver(evt) {
 			if (evt.cancelable) {
 				evt.preventDefault();
@@ -200,8 +208,8 @@ if (reversed == null) { reversed = false; }
 
 	// Слой_1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#FF0000").s().p("AAKAzIAAgUIgvAAIAAgNIArhEIATAAIAABEIANAAIAAANIgNAAIAAAUgAgVARIAAABIAfAAIAAgxIgBAAg");
-	this.shape.setTransform(15.575,19.95);
+	this.shape.graphics.f("#FF0000").s().p("AgRAwQgHgEgEgGQgFgGAAgIIAPAAQAAAGAGAEQAFAFAHAAQAFAAAFgDQAEgDADgEQACgFAAgGQAAgHgCgEQgDgFgFgCQgEgDgGAAIgJACQgEABgDACIgOgCIAFgzIA3AAIAAAOIgqAAIgDAcIAAAAQADgDAFgCQAFgCAFAAQAJAAAIAFQAHAEAEAHQAEAIAAAJQAAAKgEAIQgFAIgIAEQgIAFgJAAQgJAAgIgEg");
+	this.shape.setTransform(15.425,20.025);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(442));
 
@@ -1225,7 +1233,6 @@ an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers)
 		});
 		stage.scaleX = pRatio*sRatio;			
 		stage.scaleY = pRatio*sRatio;
-		sc = pRatio*sRatio;
 		lastW = iw; lastH = ih; lastS = sRatio;            
 		stage.tickOnUpdate = false;            
 		stage.update();            
