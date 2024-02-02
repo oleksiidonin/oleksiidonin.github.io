@@ -119,6 +119,13 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	this.timeline.addTween(cjs.Tween.get(this.btn).wait(442));
 
+	// Слой_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#FF0000").s().p("AAFAzIAAhWIgBAAIgXARIAAgPIAYgRIAPAAIAABlg");
+	this.shape.setTransform(13.8,20);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(442));
+
 	// mask (mask)
 	var mask = new cjs.Shape();
 	mask._off = true;
