@@ -125,24 +125,43 @@ if (reversed == null) { reversed = false; }
 	// timeline functions:
 	this.frame_0 = function() {
 		var frequency = 3;
-		stage.enableMouseOver(frequency);
+		//stage.enableMouseOver(frequency);
 		var bool = false;
+		
 		createjs.Touch.enable(stage);
-		console.log("Enable touch: "+createjs.Touch.enable(stage) );
+		
 		exportRoot.addEventListener("tick", my_ticker_fun.bind(this));
 		
 		this.btn.addEventListener("mouseover", btnOver);
-		this.btn.addEventListener("touchstart", btnOver);
-		stage.addEventListener("touchstart", btnOver);
-		function btnOver(evt) {
-			console.log('tyt');
+		stage.on("stagemousedown", function(evt) {
+			if (evt.cancelable) {
+				evt.preventDefault();
+			}
 			this.stop();
 			bool = true;
-			//stage.canvas.style.cursor = "pointer";
+			
+		});
+		stage.on("stagemouseup", function(evt) {
+		    if (evt.cancelable) {
+				evt.preventDefault();
+			}
+			exportRoot.play();
+			bool = false;
+		});
+		
+		function btnOver(evt) {
+			if (evt.cancelable) {
+				evt.preventDefault();
+			}
+			this.stop();
+			bool = true;
+			
 		}
 		function my_ticker_fun(evt) {
+			console.log(bool);
+			console.log(parseInt(stage.mouseX/2));
 			if(bool){
-				//console.log(parseInt(stage.mouseX/2) + 1);
+				
 				exportRoot.gotoAndStop(parseInt(stage.mouseX/2) + 1);
 			}else{
 				var fr = exportRoot.currentFrame + 10;
@@ -153,9 +172,11 @@ if (reversed == null) { reversed = false; }
 			}
 		}
 		this.btn.addEventListener("mouseout", btnOut);
-		//this.btn.addEventListener("touchend", btnOut);
-		//this.btn.addEventListener("touchcancel", btnOut);
+		
 		function btnOut(evt) {
+			if (evt.cancelable) {
+				evt.preventDefault();
+			}
 			exportRoot.play();
 			bool = false;
 		
@@ -179,8 +200,8 @@ if (reversed == null) { reversed = false; }
 
 	// Слой_1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#FF0000").s().p("AgRAxQgIgEgFgGQgFgHAAgIIAQAAQAAAHAGAEQAGAEAHAAQAJAAAGgFQAFgEAAgIQAAgHgFgFQgGgFgKAAIgIAAIAAgMIAIAAQAIAAAFgEQAFgFAAgHQAAgHgEgEQgFgFgIAAQgGAAgGAEQgGAEAAAHIgPAAQAAgIAFgGQAFgGAHgEQAIgDAIAAQAKAAAHADQAHAEAEAGQAEAHAAAHQAAAJgFAGQgEAGgIACIAAABQAKAAAFAHQAGAGAAAKQAAAIgFAHQgEAHgIADQgJAEgKAAQgJAAgIgDg");
-	this.shape.setTransform(15.5273,19.975);
+	this.shape.graphics.f("#FF0000").s().p("AAKAzIAAgUIgvAAIAAgNIArhEIATAAIAABEIANAAIAAANIgNAAIAAAUgAgVARIAAABIAfAAIAAgxIgBAAg");
+	this.shape.setTransform(15.575,19.95);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(442));
 
