@@ -71,6 +71,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 		var frequency = 3;
 		stage.enableMouseOver(frequency);
 		var bool = false;
+		createjs.Touch.enable(stage);
 		exportRoot.addEventListener("tick", my_ticker_fun.bind(this));
 		
 		this.btn.addEventListener("mouseover", btnOver);
@@ -82,7 +83,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 		}
 		function my_ticker_fun(evt) {
 			if(bool){
-				console.log(parseInt(stage.mouseX/2) + 1);
+				//console.log(parseInt(stage.mouseX/2) + 1);
 				exportRoot.gotoAndStop(parseInt(stage.mouseX/2) + 1);
 			}else{
 				var fr = exportRoot.currentFrame + 10;
