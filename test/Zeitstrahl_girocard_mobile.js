@@ -796,12 +796,12 @@ p.nominalBounds = null;
 				interval = setInterval(backAnim, 41);
 			});
 			stage.on("stagemousemove", function(evt) {
-			if (evt.cancelable) {
-				evt.preventDefault();
-			}
-			exportRoot.gotoAndStop(parseInt(stage.mouseY/sc) + 1);
-			console.log("stagemousedown");
-		});
+				if (evt.cancelable) {
+					evt.preventDefault();
+				}
+				exportRoot.gotoAndStop(parseInt(stage.mouseY/sc) + 1);
+				//console.log("stagemousedown");
+			});
 			
 		}else{
 			this.btn.addEventListener("mouseover", btnOver);
@@ -842,7 +842,7 @@ p.nominalBounds = null;
 			if (evt.cancelable) {
 				evt.preventDefault();
 			}
-			exportRoot.play();
+			//exportRoot.play();
 			bool = false;
 		}
 		
