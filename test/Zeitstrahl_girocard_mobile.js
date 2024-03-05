@@ -800,6 +800,7 @@ p.nominalBounds = null;
 					evt.preventDefault();
 				}
 				exportRoot.gotoAndStop(parseInt(stage.mouseY/sc) + 1);
+				text_visibility();
 				//console.log("stagemousedown");
 			});
 			
