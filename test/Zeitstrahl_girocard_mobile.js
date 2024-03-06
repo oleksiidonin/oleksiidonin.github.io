@@ -828,8 +828,9 @@ p.nominalBounds = null;
 				if(fr < 1){
 					clearInterval(interval);
 					exportRoot.gotoAndPlay('loop');
+				}else{
+					exportRoot.gotoAndStop(fr);
 				}
-				exportRoot.gotoAndStop(fr);
 				text_visibility();
 			}
 		}
@@ -847,8 +848,9 @@ p.nominalBounds = null;
 					var fr = exportRoot.currentFrame - 6;
 					if(fr < 1){
 						exportRoot.gotoAndPlay('loop');
+					}else{
+						exportRoot.gotoAndStop(fr);
 					}
-					exportRoot.gotoAndStop(fr);
 					text_visibility();
 				}
 			}
