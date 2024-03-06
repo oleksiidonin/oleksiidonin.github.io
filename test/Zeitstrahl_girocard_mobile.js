@@ -828,8 +828,10 @@ p.nominalBounds = null;
 				if(fr < 1){
 					clearInterval(interval);
 					exportRoot.gotoAndPlay('loop');
+					exportRoot.txt.text = 'loop';
 				}else{
 					exportRoot.gotoAndStop(fr);
+					exportRoot.txt.text = ' ' + fr;
 				}
 				text_visibility();
 			}
@@ -1081,6 +1083,16 @@ p.nominalBounds = null;
 	new cjs.ButtonHelper(this.btn, 0, 1, 1);
 
 	this.timeline.addTween(cjs.Tween.get(this.btn).wait(598));
+
+	// Слой_3
+	this.txt = new cjs.Text("", "24px 'Roboto Mono SemiBold'", "#1A498F");
+	this.txt.name = "txt";
+	this.txt.lineHeight = 34;
+	this.txt.lineWidth = 150;
+	this.txt.parent = this;
+	this.txt.setTransform(11.6,41.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.txt).wait(598));
 
 	// d13
 	this.d13 = new lib.d13();
