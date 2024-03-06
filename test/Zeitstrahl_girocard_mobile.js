@@ -827,8 +827,8 @@ p.nominalBounds = null;
 				var fr = exportRoot.currentFrame - 6;
 				if(fr < 1){
 					clearInterval(interval);
-					exportRoot.gotoAndPlay('loop');
-					exportRoot.txt.text = 'loop';
+					exportRoot.gotoAndPlay(548);
+					exportRoot.txt.text = '548';
 				}else{
 					exportRoot.gotoAndStop(fr);
 					exportRoot.txt.text = ' ' + fr;
@@ -850,10 +850,8 @@ p.nominalBounds = null;
 					var fr = exportRoot.currentFrame - 6;
 					if(fr < 1){
 						exportRoot.gotoAndPlay('loop');
-						exportRoot.txt.text = 'loop';
 					}else{
 						exportRoot.gotoAndStop(fr);
-						exportRoot.txt.text = ' ' + fr;
 					}
 					text_visibility();
 				}
