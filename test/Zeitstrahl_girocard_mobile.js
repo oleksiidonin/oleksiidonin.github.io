@@ -814,27 +814,31 @@ p.nominalBounds = null;
 			this.btn.addEventListener("mouseout", btnOut);
 			stage.addEventListener("tick", my_ticker_fun);
 		}
-		
-		function btnOver(evt) {
-			if (evt.cancelable) {
-				evt.preventDefault();
-			}
-			this.stop();
-			bool = true;
-		}
 		function backAnim(){
 			if(exportRoot.currentFrame < 530){
 				var fr = exportRoot.currentFrame - 6;
 				if(fr < 1){
 					clearInterval(interval);
-					exportRoot.gotoAndPlay(548);
-					exportRoot.txt.text = '548';
+					exportRoot.gotoAndPlay('loop');
+					exportRoot.txt.text = 'loop';
+					interval = setInterval(loopAnim, 41);
 				}else{
 					exportRoot.gotoAndStop(fr);
 					exportRoot.txt.text = ' ' + fr;
 				}
 				text_visibility();
 			}
+		}
+		function loopAnim(){
+			exportRoot.gotoAndStop(exportRoot.currentFrame + 1);
+			exportRoot.txt.text = ' ' + exportRoot.currentFrame;
+		}
+		function btnOver(evt) {
+			if (evt.cancelable) {
+				evt.preventDefault();
+			}
+			this.stop();
+			bool = true;
 		}
 		function my_ticker_fun(evt) {
 			if(bool){
@@ -843,7 +847,6 @@ p.nominalBounds = null;
 				}else {
 					exportRoot.gotoAndStop(529);
 				}
-				//console.log(exportRoot.currentFrame)
 				text_visibility();
 			}else{
 				if(exportRoot.currentFrame < 530){
@@ -861,7 +864,6 @@ p.nominalBounds = null;
 			if (evt.cancelable) {
 				evt.preventDefault();
 			}
-			//exportRoot.play();
 			bool = false;
 		}
 		
