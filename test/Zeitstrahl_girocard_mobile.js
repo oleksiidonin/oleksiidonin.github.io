@@ -787,13 +787,14 @@ p.nominalBounds = null;
 					evt.preventDefault();
 				}
 				this.stop();
+				bool = true;
 				clearInterval(interval);
 			});
 			stage.on("stagemouseup", function(evt) {
 				if (evt.cancelable) {
 					evt.preventDefault();
 				}
-				
+				bool = false;
 				interval = setInterval(backAnim, 41);
 			});
 			stage.on("stagemousemove", function(evt) {
