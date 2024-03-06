@@ -850,8 +850,10 @@ p.nominalBounds = null;
 					var fr = exportRoot.currentFrame - 6;
 					if(fr < 1){
 						exportRoot.gotoAndPlay('loop');
+						exportRoot.txt.text = 'loop';
 					}else{
 						exportRoot.gotoAndStop(fr);
+						exportRoot.txt.text = ' ' + fr;
 					}
 					text_visibility();
 				}
