@@ -786,7 +786,7 @@ p.nominalBounds = null;
 				if (evt.cancelable) {
 					evt.preventDefault();
 				}
-				if(exportRoot.currentFrame != 530){
+				if(exportRoot.currentFrame != 529){
 					this.stop();
 					bool = true;
 					clearInterval(interval);
@@ -796,7 +796,7 @@ p.nominalBounds = null;
 				if (evt.cancelable) {
 					evt.preventDefault();
 				}
-				if(exportRoot.currentFrame != 530){
+				if(exportRoot.currentFrame != 529){
 					bool = false;
 					interval = setInterval(backAnim, 41);
 				}
@@ -809,14 +809,14 @@ p.nominalBounds = null;
 				if(parseInt(stage.mouseY/sc) + 1 < 529){
 					exportRoot.gotoAndStop(parseInt(stage.mouseY/sc) + 1);
 				}else {
-					exportRoot.gotoAndStop(530);
+					exportRoot.gotoAndStop(529);
 				}
 				text_visibility();
 			});
 			
 		}
 		function backAnim(){
-			if(exportRoot.currentFrame < 530){
+			if(exportRoot.currentFrame < 529){
 				var fr = exportRoot.currentFrame - 6;
 				if(fr < 1){
 					clearInterval(interval);
