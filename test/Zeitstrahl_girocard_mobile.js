@@ -786,16 +786,21 @@ p.nominalBounds = null;
 				if (evt.cancelable) {
 					evt.preventDefault();
 				}
-				this.stop();
-				bool = true;
-				clearInterval(interval);
+				if(exportRoot.currentFrame != 530){
+					this.stop();
+					bool = true;
+					clearInterval(interval);
+				}
 			});
 			stage.on("stagemouseup", function(evt) {
 				if (evt.cancelable) {
 					evt.preventDefault();
 				}
-				bool = false;
-				interval = setInterval(backAnim, 41);
+				if(exportRoot.currentFrame != 530){
+					bool = false;
+					interval = setInterval(backAnim, 41);
+				}
+				
 			});
 			stage.on("stagemousemove", function(evt) {
 				if (evt.cancelable) {
@@ -804,15 +809,11 @@ p.nominalBounds = null;
 				if(parseInt(stage.mouseY/sc) + 1 < 529){
 					exportRoot.gotoAndStop(parseInt(stage.mouseY/sc) + 1);
 				}else {
-					exportRoot.gotoAndStop(529);
+					exportRoot.gotoAndStop(530);
 				}
 				text_visibility();
 			});
 			
-		}else{
-			this.btn.addEventListener("mouseover", btnOver);
-			this.btn.addEventListener("mouseout", btnOut);
-			stage.addEventListener("tick", my_ticker_fun);
 		}
 		function backAnim(){
 			if(exportRoot.currentFrame < 530){
@@ -820,51 +821,15 @@ p.nominalBounds = null;
 				if(fr < 1){
 					clearInterval(interval);
 					exportRoot.gotoAndPlay('loop');
-					exportRoot.txt.text = 'loop';
 					interval = setInterval(loopAnim, 41);
 				}else{
 					exportRoot.gotoAndStop(fr);
-					exportRoot.txt.text = ' ' + fr;
 				}
 				text_visibility();
 			}
 		}
 		function loopAnim(){
 			exportRoot.gotoAndStop(exportRoot.currentFrame + 1);
-			exportRoot.txt.text = ' ' + exportRoot.currentFrame;
-		}
-		function btnOver(evt) {
-			if (evt.cancelable) {
-				evt.preventDefault();
-			}
-			this.stop();
-			bool = true;
-		}
-		function my_ticker_fun(evt) {
-			if(bool){
-				if(parseInt(stage.mouseY/sc) + 1 < 529){
-					exportRoot.gotoAndStop(parseInt(stage.mouseY/sc) + 1);
-				}else {
-					exportRoot.gotoAndStop(529);
-				}
-				text_visibility();
-			}else{
-				if(exportRoot.currentFrame < 530){
-					var fr = exportRoot.currentFrame - 6;
-					if(fr < 1){
-						exportRoot.gotoAndPlay('loop');
-					}else{
-						exportRoot.gotoAndStop(fr);
-					}
-					text_visibility();
-				}
-			}
-		}
-		function btnOut(evt) {
-			if (evt.cancelable) {
-				evt.preventDefault();
-			}
-			bool = false;
 		}
 		
 		function text_visibility(){
@@ -1085,16 +1050,6 @@ p.nominalBounds = null;
 	new cjs.ButtonHelper(this.btn, 0, 1, 1);
 
 	this.timeline.addTween(cjs.Tween.get(this.btn).wait(598));
-
-	// Слой_3
-	this.txt = new cjs.Text("", "24px 'Roboto Mono SemiBold'", "#1A498F");
-	this.txt.name = "txt";
-	this.txt.lineHeight = 34;
-	this.txt.lineWidth = 150;
-	this.txt.parent = this;
-	this.txt.setTransform(11.6,41.3);
-
-	this.timeline.addTween(cjs.Tween.get(this.txt).wait(598));
 
 	// d13
 	this.d13 = new lib.d13();
