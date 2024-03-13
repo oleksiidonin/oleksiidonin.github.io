@@ -806,12 +806,14 @@ p.nominalBounds = null;
 				if (evt.cancelable) {
 					evt.preventDefault();
 				}
-				if(parseInt(stage.mouseY/sc) + 1 < 529){
-					exportRoot.gotoAndStop(parseInt(stage.mouseY/sc) + 1);
-				}else {
-					exportRoot.gotoAndStop(529);
+				if(exportRoot.currentFrame != 529){
+					if(parseInt(stage.mouseY/sc) + 1 < 529){
+						exportRoot.gotoAndStop(parseInt(stage.mouseY/sc) + 1);
+					}else {
+						exportRoot.gotoAndStop(529);
+					}
+					text_visibility();
 				}
-				text_visibility();
 			});
 			
 		}
