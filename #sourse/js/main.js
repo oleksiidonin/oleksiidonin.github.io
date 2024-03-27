@@ -293,7 +293,7 @@ var content =
 		{ "numBanners": "109" }, //brand 103  
 		{ "numBanners": "22" }, //brand 104   
 		{ "numBanners": "18" }, //brand 105 
-		{ "numBanners": "3" } //brand 106      
+		{ "numBanners": "4" } //brand 106      
 	]
 }
 
