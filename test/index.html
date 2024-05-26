@@ -63,10 +63,7 @@ function handleComplete(evt,comp) {
 				var w = window.innerWidth, h = window.innerWidth/2;			
 				var iw = window.innerWidth, ih=window.innerWidth/2;
 				var st_sc  = window.innerWidth/400;
-			}	
-			console.log(st_sc);
-			//var w = lib.properties.width, h = lib.properties.height;			
-			//var iw = window.innerWidth, ih=window.innerHeight;			
+			}				
 			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
 			if(isResp) {                
 				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    

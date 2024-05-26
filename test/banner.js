@@ -1472,7 +1472,7 @@ p.nominalBounds = new cjs.Rectangle(-3000,-500,6000,1000);
 		function resizeBanner() {
 			var docW = window.innerWidth;
 			var docH = window.innerHeight;
-			console.log(window.innerWidth + '; ' + window.innerHeight);
+			
 			if(docH > docW){
 				myLocalThis01.gotoAndStop('v');
 			}else{
