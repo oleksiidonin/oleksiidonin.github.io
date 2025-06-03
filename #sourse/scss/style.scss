@@ -103,9 +103,12 @@ $Loader-timing: ease-in-out;
 @font-face {
 	font-family: "SFUIDisplay";
 	src: url("../fonts/SFUIDisplayRegular.eot");
-	src: url("../fonts/SFUIDisplayRegular.eot") format("embedded-opentype"),
-		url("../fonts/SFUIDisplayRegular.woff2") format("woff2"), url("../fonts/SFUIDisplayRegular.woff") format("woff"),
-		url("../fonts/SFUIDisplayRegular.ttf") format("truetype"), url("../fonts/SFUIDisplayRegular.svg") format("svg");
+	src:
+		url("../fonts/SFUIDisplayRegular.eot") format("embedded-opentype"),
+		url("../fonts/SFUIDisplayRegular.woff2") format("woff2"),
+		url("../fonts/SFUIDisplayRegular.woff") format("woff"),
+		url("../fonts/SFUIDisplayRegular.ttf") format("truetype"),
+		url("../fonts/SFUIDisplayRegular.svg") format("svg");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -113,9 +116,12 @@ $Loader-timing: ease-in-out;
 @font-face {
 	font-family: "IntegralCF";
 	src: url("../fonts/IntegralCF-Bold.eot");
-	src: url("../fonts/IntegralCF-Bold.eot") format("embedded-opentype"),
-		url("../fonts/IntegralCF-Bold.woff2") format("woff2"), url("../fonts/IntegralCF-Bold.woff") format("woff"),
-		url("../fonts/IntegralCF-Bold.ttf") format("truetype"), url("../fonts/IntegralCF-Bold.svg") format("svg");
+	src:
+		url("../fonts/IntegralCF-Bold.eot") format("embedded-opentype"),
+		url("../fonts/IntegralCF-Bold.woff2") format("woff2"),
+		url("../fonts/IntegralCF-Bold.woff") format("woff"),
+		url("../fonts/IntegralCF-Bold.ttf") format("truetype"),
+		url("../fonts/IntegralCF-Bold.svg") format("svg");
 	font-weight: 700;
 	font-style: Bold;
 }
@@ -830,11 +836,11 @@ body._touch .moreBanners img {
 	&__text {
 		font-family: "IntegralCF";
 		font-weight: 700;
-		line-height: 1;
+		line-height: 1.5;
 		font-size: 3.2rem;
 		color: $mainTextColor;
 		text-align: center;
-		margin-top: 30vh;
+		margin-top: 15vh;
 	}
 	&__content {
 		display: flex;

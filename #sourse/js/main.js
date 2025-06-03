@@ -179,7 +179,7 @@ function setFontSize() {
 
 //------------------------ Галерея баннеров
 
-var numBrands = 106;
+var numBrands = 112;
 var num, numGor;
 
 const moreBtn = document.querySelector('.works .loadMore__conteiner');
@@ -240,11 +240,11 @@ var content =
 		{ "numBanners": "5" }, //brand 50  
 		{ "numBanners": "1" }, //brand 51  
 		{ "numBanners": "6" }, //brand 52  
-		{ "numBanners": "5" }, //brand 53  
+		{ "numBanners": "11" }, //brand 53  - Enterogermina
 		{ "numBanners": "2" }, //brand 54  
 		{ "numBanners": "5" }, //brand 55
 		{ "numBanners": "1" }, //brand 56  
-		{ "numBanners": "5" }, //brand 57  
+		{ "numBanners": "6" }, //brand 57  - Lazolvan
 		{ "numBanners": "15" }, //brand 58  
 		{ "numBanners": "2" }, //brand 59  
 		{ "numBanners": "2" }, //brand 60  
@@ -259,10 +259,10 @@ var content =
 		{ "numBanners": "1" }, //brand 69  
 		{ "numBanners": "8" }, //brand 70  
 		{ "numBanners": "1" }, //brand 71  
-		{ "numBanners": "4" }, //brand 72  
+		{ "numBanners": "5" }, //brand 72 - Credit Agricole
 		{ "numBanners": "1" }, //brand 73  
 		{ "numBanners": "2" }, //brand 74  
-		{ "numBanners": "6" }, //brand 75  
+		{ "numBanners": "12" }, //brand 75 - Flint 
 		{ "numBanners": "4" }, //brand 76  
 		{ "numBanners": "15" }, //brand 77  
 		{ "numBanners": "2" }, //brand 78   
@@ -274,26 +274,32 @@ var content =
 		{ "numBanners": "3" }, //brand 84   
 		{ "numBanners": "5" }, //brand 85   
 		{ "numBanners": "3" }, //brand 86   
-		{ "numBanners": "6" }, //brand 87   
+		{ "numBanners": "6" }, //brand 87 - Sudocrem 
 		{ "numBanners": "2" }, //brand 88   
 		{ "numBanners": "3" }, //brand 89   
-		{ "numBanners": "6" }, //brand 90   
-		{ "numBanners": "10" }, //brand 91   
-		{ "numBanners": "5" }, //brand 92   
-		{ "numBanners": "3" }, //brand 93   
-		{ "numBanners": "10" }, //brand 94   
-		{ "numBanners": "2" }, //brand 95   
-		{ "numBanners": "20" }, //brand 96   
-		{ "numBanners": "3" }, //brand 97   
-		{ "numBanners": "16" }, //brand 98   
-		{ "numBanners": "11" }, //brand 99   
-		{ "numBanners": "48" }, //brand 100   
-		{ "numBanners": "31" },  //brand 101   
-		{ "numBanners": "12" }, //brand 102   
-		{ "numBanners": "109" }, //brand 103  
-		{ "numBanners": "22" }, //brand 104   
-		{ "numBanners": "18" }, //brand 105 
-		{ "numBanners": "4" } //brand 106      
+		{ "numBanners": "6" }, //brand 90 - Festal 
+		{ "numBanners": "14" }, //brand 91 - No Spa  
+		{ "numBanners": "1" }, //brand 92 - Anksiomedin 
+		{ "numBanners": "1" }, //brand 93 - Himalaya 
+		{ "numBanners": "2" }, //brand 94 - CartNuar 
+		{ "numBanners": "3" }, //brand 95 - Gutalax
+		{ "numBanners": "6" }, //brand 96 - Bonds 
+		{ "numBanners": "7" }, //brand 97 - SanSanich
+		{ "numBanners": "4" }, //brand 98 - VEEV 
+		{ "numBanners": "16" }, //brand 99 - Essenciale
+		{ "numBanners": "9" }, //brand 100 - Gerber
+		{ "numBanners": "10" }, //brand 101 - Samsung	
+		{ "numBanners": "20" }, //brand 102 - toyota
+		{ "numBanners": "31" }, //brand 103 - WOG
+		{ "numBanners": "13" }, //brand 104 - LIL
+		{ "numBanners": "51" }, //brand 105  - Renault
+		{ "numBanners": "16" }, //brand 106  - Pepsi
+		{ "numBanners": "18" }, //brand 107 - ZYN 
+		{ "numBanners": "21" }, //brand 108 - Nescafe
+		{ "numBanners": "10" }, //brand 109 - CHIPSTER'S 
+		{ "numBanners": "22" }, //brand 110   Lay's
+		{ "numBanners": "11" }, //brand 111   - McDonald’s
+		{ "numBanners": "130" } //brand 112 - IQOS 
 	]
 }
 

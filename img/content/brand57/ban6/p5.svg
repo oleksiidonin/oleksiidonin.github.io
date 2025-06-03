@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 352.4 432.4" style="enable-background:new 0 0 352.4 432.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+</style>
+<g id="Слой_1">
+</g>
+<g id="Шар_1">
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="40.8323" y1="216.1871" x2="410.7858" y2="216.1871">
+		<stop  offset="3.766963e-04" style="stop-color:#4E8FCC;stop-opacity:0.3"/>
+		<stop  offset="5.167865e-02" style="stop-color:#6FA4D6;stop-opacity:0.3873"/>
+		<stop  offset="0.1401" style="stop-color:#A2C4E4;stop-opacity:0.5376"/>
+		<stop  offset="0.2232" style="stop-color:#CADEF0;stop-opacity:0.6791"/>
+		<stop  offset="0.2988" style="stop-color:#E7F0F8;stop-opacity:0.8077"/>
+		<stop  offset="0.3641" style="stop-color:#F9FBFD;stop-opacity:0.9188"/>
+		<stop  offset="0.4119" style="stop-color:#FFFFFF"/>
+	</linearGradient>
+	<path class="st0" d="M349,210.9C301,191.1,132.9,115,82.1,0L0,0.4v432l82.1-0.4C132.9,317,301,240.9,349,221.1
+		C353.6,219.2,353.6,212.8,349,210.9z"/>
+</g>
+</svg>
