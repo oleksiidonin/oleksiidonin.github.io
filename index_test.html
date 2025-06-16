@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Football Odds (1X2)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h2>Live Football Odds (1X2)</h2>
+  <table id="oddsTable">
+    <thead>
+      <tr>
+        <th>Match</th>
+        <th>Home Win</th>
+        <th>Draw</th>
+        <th>Away Win</th>
+      </tr>
+    </thead>
+    <tbody id="oddsBody">
+      <tr><td colspan="4">Loading...</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    async function getAccessToken() {
+      const client_id = 'partners-b5ac0c8579863159bb23a63101f1b94e';
+      const client_secret = 'doq8PKM51cQf8xHB3vf%fYkzFUcbvgB%IZ*!UPtZETjaEzdhVh&!JLt*iRFzvTzr';
+
+      const params = new URLSearchParams();
+      params.append('client_id', client_id);
+      params.append('client_secret', client_secret);
+
+      try {
+        const response = await fetch('https://cpservm.com/gateway/token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params
+        });
+
+        if (!response.ok) throw new Error(`Token error: ${response.status}`);
+        const data = await response.json();
+        return data.access_token;
+      } catch (error) {
+        console.error('Ошибка при получении токена:', error);
+        return null;
+      }
+    }
+
+    async function fetchSports(token) {
+      const url = new URL('https://cpservm.com/gateway/marketing/datafeed/directories/api/v2/sports');
+      url.searchParams.append('ref', '321');
+      url.searchParams.append('lng', 'en');
+
+      const response = await fetch(url.toString(), {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (!response.ok) {
+        const text = await response.text();
+        console.error(`Ошибка ${response.status}:`, text);
+        return null;
+      }
+      const data = await response.json();
+      
+      console.log('SPORTS:', data);
+      return data.items;
+    }
+
+    async function fetchSportEvents(token, sportId) {
+      const url = new URL('https://cpservm.com/gateway/marketing/datafeed/prematch/api/v2/sportevents');
+      url.searchParams.append('ref', '321');
+      url.searchParams.append('lng', 'en');
+      url.searchParams.append('SportIds', sportId);
+
+      const response = await fetch(url.toString(), {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (!response.ok) {
+        const text = await response.text();
+        console.error(`Ошибка ${response.status}:`, text);
+        return null;
+      }
+      const data = await response.json();
+      
+      return data.items;
+    }
+
+    function extractOdds(oddsLocalization) {
+      return {
+        W1: oddsLocalization.find(o => o.display === 'W1')?.oddsMarket ?? '-',
+        X:  oddsLocalization.find(o => o.display === 'X')?.oddsMarket ?? '-',
+        W2: oddsLocalization.find(o => o.display === 'W2')?.oddsMarket ?? '-',
+      };
+    }
+
+    async function loadOdds() {
+      const token = await getAccessToken();
+      if (!token) return;
+
+      const sports = await fetchSports(token);
+      if (!Array.isArray(sports)) {
+        document.getElementById('oddsBody').innerHTML = '<tr><td colspan="4">Ошибка загрузки списка видов спорта.</td></tr>';
+        return;
+      }
+
+      const football = sports.find(s => s.name.toLowerCase() === 'football');
+      if (!football) {
+        document.getElementById('oddsBody').innerHTML = '<tr><td colspan="4">Футбол не найден.</td></tr>';
+        return;
+      }
+
+      const events = await fetchSportEvents(token, football.id);
+      if (!Array.isArray(events) || events.length === 0) {
+        document.getElementById('oddsBody').innerHTML = '<tr><td colspan="4">Нет доступных футбольных матчей.</td></tr>';
+        return;
+      }
+
+      const rows = events.map(event => {
+        const odds = extractOdds(event.oddsLocalization);
+        const match = `${event.opponent1NameLocalization} vs ${event.opponent2NameLocalization}`;
+        return `
+          <tr>
+            <td>${match}</td>
+            <td>${odds.W1}</td>
+            <td>${odds.X}</td>
+            <td>${odds.W2}</td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('oddsBody').innerHTML = rows;
+    }
+
+    window.onload = loadOdds;
+  </script>
+</body>
+</html>
