@@ -70,8 +70,6 @@
         return null;
       }
       const data = await response.json();
-      
-      console.log('SPORTS:', data);
       return data.items;
     }
 
@@ -90,16 +88,39 @@
         return null;
       }
       const data = await response.json();
-      
       return data.items;
     }
 
-    function extractOdds(oddsLocalization) {
-      return {
-        W1: oddsLocalization.find(o => o.display === 'W1')?.oddsMarket ?? '-',
-        X:  oddsLocalization.find(o => o.display === 'X')?.oddsMarket ?? '-',
-        W2: oddsLocalization.find(o => o.display === 'W2')?.oddsMarket ?? '-',
-      };
+    async function fetchMarkets(token, gameId) {
+      const url = new URL('https://cpservm.com/gateway/marketing/datafeed/loadlist/prematch/api/v1/getMarketsGame');
+      url.searchParams.append('ref', '321');
+      url.searchParams.append('gameId', gameId);
+      url.searchParams.append('languages', 'en');
+      url.searchParams.append('schemeOfGettingOdds', 'Get1X2Odds');
+
+      const response = await fetch(url.toString(), {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      if (!response.ok) {
+        const text = await response.text();
+        console.error(`Ошибка загрузки маркетов ${response.status}:`, text);
+        return [];
+      }
+      const data = await response.json();
+      return data.items;
+    }
+
+    function extractMainOdds(markets) {
+      const odds = { W1: '-', X: '-', W2: '-' };
+
+      for (const market of markets) {
+        const display = market.displayMulti?.en;
+        if (display === 'W1') odds.W1 = market.oddsMarket;
+        else if (display === 'X') odds.X = market.oddsMarket;
+        else if (display === 'W2') odds.W2 = market.oddsMarket;
+      }
+      return odds;
     }
 
     async function loadOdds() {
@@ -112,7 +133,7 @@
         return;
       }
 
-      const football = sports.find(s => s.name.toLowerCase() === 'football');
+      const football = sports.find(s => s.name.trim().toLowerCase() === 'football');
       if (!football) {
         document.getElementById('oddsBody').innerHTML = '<tr><td colspan="4">Футбол не найден.</td></tr>';
         return;
@@ -124,8 +145,9 @@
         return;
       }
 
-      const rows = events.map(event => {
-        const odds = extractOdds(event.oddsLocalization);
+      const rows = await Promise.all(events.slice(0, 10).map(async event => {
+        const markets = await fetchMarkets(token, event.sportEventId);
+        const odds = extractMainOdds(markets);
         const match = `${event.opponent1NameLocalization} vs ${event.opponent2NameLocalization}`;
         return `
           <tr>
@@ -135,12 +157,15 @@
             <td>${odds.W2}</td>
           </tr>
         `;
-      }).join('');
+      }));
 
-      document.getElementById('oddsBody').innerHTML = rows;
+      document.getElementById('oddsBody').innerHTML = rows.join('');
     }
 
-    window.onload = loadOdds;
+    window.onload = () => {
+      loadOdds();
+      setInterval(loadOdds, 22000); // обновлять каждые 22 секунды
+    };
   </script>
 </body>
 </html>
