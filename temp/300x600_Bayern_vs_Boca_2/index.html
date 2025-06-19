@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<meta name="ad.size" content="width=300,height=250">
+<title></title>
+<!-- write your code here -->
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/createjs_2015.11.26_54e1c3722102182bb133912ad4442e19_min.js"></script>
+<script src="300x600.js"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+var oddsW1, oddsX, oddsW2;
+var num=1;
+var link = "https://1xbetrs.onelink.me/TAil/ranhfsx1";
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("04B76919AEF842B6A6F01C7C9A429D40");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib._300x600();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	function makeResponsive(isResp, respDim, isScale, scaleType) {		
+		var lastW, lastH, lastS=1;		
+		window.addEventListener('resize', resizeCanvas);		
+		resizeCanvas();		
+		function resizeCanvas() {			
+			var w = lib.properties.width, h = lib.properties.height;			
+			var iw = window.innerWidth, ih=window.innerHeight;			
+			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+			if(isResp) {                
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+					sRatio = lastS;                
+				}				
+				else if(!isScale) {					
+					if(iw<w || ih<h)						
+						sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==1) {					
+					sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==2) {					
+					sRatio = Math.max(xRatio, yRatio);				
+				}			
+			}			
+			canvas.width = w*pRatio*sRatio;			
+			canvas.height = h*pRatio*sRatio;
+			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';				
+			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
+			stage.scaleX = pRatio*sRatio;			
+			stage.scaleY = pRatio*sRatio;			
+			lastW = iw; lastH = ih; lastS = sRatio;            
+			stage.tickOnUpdate = false;            
+			stage.update();            
+			stage.tickOnUpdate = true;		
+		}
+	}
+	makeResponsive(false,'both',false,1);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+
+	//============================================================ Get odds
+	const MATCH_ID = 629643700;
+
+    async function getAccessToken() {
+      const client_id = 'partners-b5ac0c8579863159bb23a63101f1b94e';
+      const client_secret = 'doq8PKM51cQf8xHB3vf%fYkzFUcbvgB%IZ*!UPtZETjaEzdhVh&!JLt*iRFzvTzr';
+
+      const params = new URLSearchParams();
+      params.append('client_id', client_id);
+      params.append('client_secret', client_secret);
+
+      try {
+        const response = await fetch('https://cpservm.com/gateway/token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params
+        });
+
+        if (!response.ok) throw new Error(`Token error: ${response.status}`);
+        const data = await response.json();
+        return data.access_token;
+      } catch (error) {
+        console.error('Ошибка при получении токена:', error);
+        return null;
+      }
+    }
+
+    async function fetchMarkets(token, gameId) {
+      const url = new URL('https://cpservm.com/gateway/marketing/datafeed/loadlist/prematch/api/v1/getMarketsGame');
+      url.searchParams.append('ref', '321');
+      url.searchParams.append('gameId', gameId);
+      url.searchParams.append('languages', 'en');
+      url.searchParams.append('schemeOfGettingOdds', 'Get1X2Odds');
+
+      const response = await fetch(url.toString(), {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      if (!response.ok) {
+        const text = await response.text();
+        console.error(`Ошибка загрузки маркетов ${response.status}:`, text);
+        return [];
+      }
+      const data = await response.json();
+      return data.items;
+    }
+
+    function extractMainOdds(markets) {
+      const odds = { W1: '-', X: '-', W2: '-' };
+
+      for (const market of markets) {
+        const display = market.displayMulti?.en;
+        if (display === 'W1') odds.W1 = market.oddsMarket;
+        else if (display === 'X') odds.X = market.oddsMarket;
+        else if (display === 'W2') odds.W2 = market.oddsMarket;
+      }
+      return odds;
+    }
+
+    async function loadOdds() {
+      const token = await getAccessToken();
+      if (!token) return;
+
+      const markets = await fetchMarkets(token, MATCH_ID);
+      if (!Array.isArray(markets) || markets.length === 0) {
+        document.getElementById('oddsBody').innerHTML = '<tr><td colspan="4">Нет данных по коэффициентам для этого события.</td></tr>';
+        return;
+      }
+
+      const odds = extractMainOdds(markets);
+
+      oddsW1 = odds.W1;
+      oddsX = odds.X;
+      oddsW2 = odds.W2;
+     
+    }
+    loadOdds();
+	setInterval(loadOdds, 21000); // обновлять каждые 22 секунды
+
+	//============================================================
+
+
+}
+</script>
+<!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;">
+	<a href="javascript:window.open(window.link)">
+		<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:300px; height:600px">
+			<canvas id="canvas" width="300" height="600" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+			<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+			</div>
+		</div>
+	</a>
+</body>
+</html>
