@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="ad.size" content="width=300,height=600">
+    <meta name="x-rm-alias" content="tracker_DA-AU-CTR">
+    <title>320x480</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/gsap.min.js"></script>
+
+    <style id="resize-styles">
+    :root {
+      --bnr-width: 320px;
+      --bnr-height: 480px;
+      --btn-height: 32px;
+      --bg-img: url("../images/bg.jpg");
+
+    }
+  </style>
+  </head>
+
+  <body class="inner-page">
+    <div class="wrapper">
+      <div class="bg"></div>
+      <div class="frame3 abs adsize">
+        <div class="btn abs noevent"></div>
+      </div>
+      <div class="frame2 abs adsize">
+        <div class="form_holder abs">
+          <div class="form_name">
+            <div class="form_name_conteiner">
+              سجل إهتمامك الآن
+            </div>
+          </div>
+          <div class="formGroup">
+            <div>
+              <input type="text" id="your_name" class="input_field your_name" placeholder="الإسم الكامل">
+            </div>
+          </div>
+          <div class="formGroup">
+            <div>
+              <input type="text" id="your_phone" class="input_field your_phone" placeholder="رقم الجوال" onkeypress="return onlyNumberKey(event)">
+            </div>
+          </div>
+          <div class="formGroup">
+            <div>
+              <input type="text" id="your_city" class="input_field your_city" placeholder="المدينة">
+            </div>
+          </div>
+          <div class="btn_wrap">
+            <img src="images/try_again_btn.svg" alt="" class="try_again_btn">
+
+            <img src="images/submit_btn.svg" alt="" class="submit_btn" id="submit_btn">
+          </div>
+
+          <div class="error_messages noevent opacity0">
+            <p class="error hide" id="error_text">*Your name</p>
+            <p class="error hide" id="error_email">*Your email</p>
+            <p class="error hide" id="error_phone">*Your phone number</p>
+            <p class="error hide" id="error_location">
+              *Please enter your location
+            </p>
+            <p class="error hide" id="error_psc">*Your city</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="frame1 abs adsize">
+        <div class="icon"></div>
+        
+      </div>
+    </div>
+    <script type="text/javascript">
+
+      const wrapper = document.querySelector(".wrapper");
+      gsap.set(wrapper, { opacity: 0 });
+
+      var clickTag = "https://CLICK_URL";
+      var eventUrl = "https://EVENT_URL";
+
+      function startEvent(event) {
+        var track = new Image();
+        track.src = eventUrl + event;
+      }
+
+      var isStarted = true;
+      function startedFunction() {
+        if (isStarted) {
+          isStarted = false;
+          startEvent("Main");
+        }
+      }
+
+      var isFinished = true;
+      function finishedFunction() {
+        if (isFinished) {
+          isFinished = false;
+          startEvent("Seen_All");
+        }
+      }
+
+      function clickThrough(event) {
+        window.open(clickTag);
+      }
+
+      var engOb = {
+        mouseOver: false,
+        touch: false,
+      };
+
+      function setEng(event) {
+        if (!engOb.mouseOver && !engOb.touch) {
+          switch (event.type) {
+            case "mouseover":
+              engOb.mouseOver = true;
+              startEvent("Mouse_Over");
+              break;
+            case "touchstart":
+              engOb.touch = true;
+              startEvent("Touch");
+              break;
+          }
+        }
+      }
+
+      wrapper.addEventListener("mouseover", setEng);
+      wrapper.addEventListener("touchstart", setEng);
+
+      const initTracker = document.querySelector(
+        'meta[name="x-rm-alias"]'
+      )?.content;
+      startEvent(initTracker);
+
+
+      function trackValues(val1, val2, val3, val4, val5) {
+        tracker = new Image();
+        tracker.src =
+          "https://rm.eskimi.com/dsptools/api/tracker?site_id=" +
+          "{site_id}" +
+          "&cid=" +
+          "{campaign_id}" +
+          "&crid=" +
+          "{creative_id}" +
+          "&value1=" +
+          val1 +
+          "&value2=" +
+          val2 +
+          "&value3=" +
+          val3 +
+          "&value4=" +
+          val4 +
+          "&value5=" +
+          val5;
+      }
+    </script>
+    <script type="text/javascript" src="js/code.js"></script>
+  </body>
+</html>
