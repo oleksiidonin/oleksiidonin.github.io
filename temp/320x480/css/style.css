@@ -1,9 +1,4 @@
-@font-face {
-    font-family: 'DIN_Next_Arabic_Bold';
-    src: url('../fonts/DIN_Next_Arabic_Bold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 body {
   position: absolute !important;
@@ -59,24 +54,24 @@ body {
 }
 
 .frame1 {
-    background-image:url(../images/frame1.svg);
+    background-image:url(../assets/frame1.svg);
 }
 
 .frame2 {
   width: var(--bnr-width);
   height: var(--bnr-height); 
 }
-
+/*
 .frame3 {
-    background-image:url(../images/frame3.svg);
+    background-image:url(../assets/bg2.jpg);
 }
-
+*/
 .btn {
     width: 178px;
     height: 38px;
-    bottom: 60px;
+    bottom: 80px;
     margin-left: 61px;
-    background-image:url(../images/btn.svg);
+    background-image:url(../assets/btn.svg);
 }
 .bg {
   position: absolute;
@@ -142,7 +137,7 @@ body {
   bottom: 20px;
   right: 10px;
   background-size: contain;
-  background-image:url(../images/icon.svg);
+  background-image:url(../assets/icon.svg);
 }
 
 .map {

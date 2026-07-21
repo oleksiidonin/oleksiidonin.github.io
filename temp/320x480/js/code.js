@@ -14,13 +14,35 @@ var policylink = "";
 const settings = {
   w: 320,
   h: 480,
+  assets: [
+    {
+      format: "jpg",
+      type: "class",
+      cors: false,
+      src: "bg bg2",
+    },
+    /*
+    {
+      format: "png",
+      type: "class",
+      cors: false,
+      src: "f1 f2 f3 icon cta",
+    },
+   */
+    {
+      format: "otf",
+      type: "font",
+      fontName: "DIN_Next_Arabic_Bold",
+      src: "DIN_Next_Arabic_Bold",
+    },
+    
+  ],
 };
 
 async function sendLead(data, authToken) {
   try {
     const response = await fetch(
-      //"https://automotive-leads.ami.cz/api/rest/v2/lead",
-      "https://google.com",
+      "https://automotive-leads.ami.cz/api/rest/v2/lead",
       {
         method: "POST",
         headers: {
@@ -134,7 +156,7 @@ function trackandCTA() {
 
     setTimeout(() => {
       gsap.to(".frame2", 0.5, { x: -settings.w, opacity: 0 });
-      gsap.to(".frame3", 0.5, {
+      gsap.to(".bg2", 0.5, {
         x: 0,
         opacity: 1,
         onComplete: () => {
@@ -165,8 +187,7 @@ function onlyNumberKey(evt) {
 /// END FORM HANDLE
 
 function init(event) {
-  console.log('good');
-  gsap.set(".frame2, .frame3", { x: settings.w });
+  gsap.set(".frame2, .bg2", { x: settings.w });
 
   gsap.to(".wrapper", { opacity: 1 });
 
@@ -219,7 +240,12 @@ function init(event) {
           });
   });
 }
-
+/*
 window.addEventListener("load", () => {
+  init();
+});
+*/
+
+EskimiDef.load().then(() => {
   init();
 });
